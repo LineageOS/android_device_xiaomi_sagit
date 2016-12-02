@@ -241,6 +241,10 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     ueventd.qcom.rc
 
+# Recovery
+PRODUCT_PACKAGES += \
+    librecovery_updater_sagit
+
 # RIL
 PRODUCT_PACKAGES += \
     librmnetctl \
