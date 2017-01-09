@@ -38,18 +38,37 @@ static union {
     const hw_module_t *hw_module;
 } vendor;
 
-static bool ensure_vendor_module_is_loaded(void)
+static bool try_hal(const char *class_name, const char *device_name)
+{
+    const hw_module_t *module;
+
+    int rv = hw_get_module_by_class("fingerprint", class_name, &module);
+    if (rv) {
+        ALOGE("Failed to open fingerprint module: class %s, error %d", class_name, rv);
+        vendor.module = NULL;
+    } else {
+        hw_device_t *device;
+
+        ALOGI("loaded fingerprint module, class %s: %s version %x", class_name, module->name,
+            module->module_api_version);
+        if (module->methods->open(module, device_name, &device) == 0) {
+             device->close(device);
+             ALOGI("Successfully loaded the device for fingerprint module, class %s", class_name);
+             vendor.hw_module = module;
+        } else {
+             ALOGE("Failed to open a device using fingerprint HAL, class %s", class_name);
+        }
+    }
+    return vendor.module != NULL;
+}
+
+static bool ensure_vendor_module_is_loaded(const char *device_name)
 {
     android::Mutex::Autolock lock(vendor_mutex);
 
     if (!vendor.module) {
-        int rv = hw_get_module_by_class("fingerprint", "vendor", &vendor.hw_module);
-        if (rv) {
-            ALOGE("failed to open vendor module, error %d", rv);
-            vendor.module = NULL;
-        } else {
-            ALOGI("loaded vendor module: %s version %x", vendor.module->common.name,
-                vendor.module->common.module_api_version);
+        if (!try_hal("fpc", device_name)) {
+            try_hal("goodix", device_name);
         }
     }
 
@@ -140,7 +159,7 @@ static int device_open(const hw_module_t *module, const char *name, hw_device_t 
     int rv;
     device_t *device;
 
-    if (!ensure_vendor_module_is_loaded()) {
+    if (!ensure_vendor_module_is_loaded(name)) {
         return -EINVAL;
     }
 
