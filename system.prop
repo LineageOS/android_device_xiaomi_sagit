@@ -174,9 +174,6 @@ ro.vendor.qti.core_ctl_max_cpu=4
 ro.vendor.qti.core_ctl_min_cpu=2
 ro.vendor.qti.sys.fw.bg_apps_limit=60
 
-# Sdcardfs
-ro.sys.sdcardfs=1
-
 # Sensors
 persist.sys.sensors.cfos=false
 persist.sys.sensors.pug=false
