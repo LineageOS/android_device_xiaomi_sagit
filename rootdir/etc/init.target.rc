@@ -26,7 +26,6 @@
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 #
-import init.offline.log.rc
 
 on early-init
     mkdir /firmware 0771 system system
