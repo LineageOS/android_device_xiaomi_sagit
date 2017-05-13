@@ -1002,3 +1002,4 @@ vendor/lib/libqvop-service.so
 
 # WiFi
 bin/cnss-daemon
+lib/modules/qca_cld3_wlan.ko:lib/modules/wlan.ko
