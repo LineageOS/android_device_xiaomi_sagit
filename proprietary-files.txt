@@ -660,6 +660,12 @@ lib/hw/fingerprint.fpc.so
 lib64/hw/fingerprint.fpc.so
 lib/hw/fingerprint.goodix.so
 lib64/hw/fingerprint.goodix.so
+lib/libgoodixfingerprintd_binder.so
+lib64/libgoodixfingerprintd_binder.so
+lib/libgf_ca.so
+lib/libgf_hal.so
+lib64/libgf_ca.so
+lib64/libgf_hal.so
 
 # Gatekeeper
 vendor/lib64/hw/gatekeeper.msm8998.so
