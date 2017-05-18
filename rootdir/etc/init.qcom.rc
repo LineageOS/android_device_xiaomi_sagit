@@ -655,7 +655,7 @@ service qmuxd /system/bin/qmuxd
 
 service netmgrd /system/bin/netmgrd
     class main
-    disabled
+    group radio system wakelock
 
 service ipacm-diag /system/bin/ipacm-diag
     class main
