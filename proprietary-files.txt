@@ -819,6 +819,14 @@ vendor/lib64/libvoice-svc.so
 # IPA
 bin/ipacm-diag
 
+# IPA FWs
+etc/firmware/ipa_fws.b00
+etc/firmware/ipa_fws.b01
+etc/firmware/ipa_fws.b02
+etc/firmware/ipa_fws.b03
+etc/firmware/ipa_fws.b04
+etc/firmware/ipa_fws.mdt
+
 # Keystore
 vendor/lib64/hw/keystore.msm8998.so
 vendor/lib/hw/keystore.msm8998.so
