@@ -128,6 +128,29 @@ on boot
     #Create NETMGR daemon socket area
     mkdir /dev/socket/netmgr 0750 radio radio
 
+    # RGB lights
+    chown system system /sys/class/leds/white/brightness
+    chown system system /sys/class/leds/white/pause_lo
+    chown system system /sys/class/leds/white/pause_hi
+    chown system system /sys/class/leds/white/blink
+    chown system system /sys/class/leds/white/ramp_step_ms
+    chown system system /sys/class/leds/white/duty_pcts
+    chown system system /sys/class/leds/white/start_idx
+
+    chmod 660 /sys/class/leds/white/brightness
+    chmod 660 /sys/class/leds/white/ramp_step_ms
+    chmod 660 /sys/class/leds/white/duty_pcts
+    chmod 660 /sys/class/leds/white/start_idx
+
+    # LED torch permissions
+    chmod 0666 /sys/class/leds/led:torch_0/brightness
+    chmod 0666 /sys/class/leds/led:torch_1/brightness
+    chmod 0666 /sys/class/leds/led:switch_0/brightness
+    chmod 0666 /sys/class/leds/led:switch_1/brightness
+
+    # Button backlight permissions
+    chown system system /sys/class/leds/button-backlight1/brightness
+
     setprop wifi.interface wlan0
 
 #   Define TCP buffer sizes for various networks
