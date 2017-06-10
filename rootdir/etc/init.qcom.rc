@@ -237,6 +237,10 @@ on boot
     chmod 0660 /dev/block/bootdevice/by-name/rawdump -p /dev/block/
     chown root system /sys/kernel/dload/emmc_dload
     chmod 0660 /sys/kernel/dload/emmc_dload
+    chown root system /dev/block/bootdevice/by-name/ramdump -p /dev/block/
+    chmod 0660 /dev/block/bootdevice/by-name/ramdump -p /dev/block/
+    chown root system /sys/kernel/dload/dload_mode
+    chmod 0660 /sys/kernel/dload/dload_mode
 
 # msm specific files that need to be created on /data
 on post-fs-data
@@ -360,6 +364,7 @@ on post-fs-data
     mkdir /data/misc/SelfHost/storage/ 0700 system shell
     mkdir /data/misc/SelfHost/Running/ 2750 system shell
     mkdir /data/misc/SelfHost/socket/ 2770 system system
+    mkdir /data/misc/OTA/ 0750 system system
 
     #Create PERFD deamon related dirs
     mkdir /data/system/perfd 0770 root system
@@ -411,6 +416,10 @@ on post-fs-data
     chown system system /sys/class/leds/led:torch_0/brightness
     chown system system /sys/class/leds/led:torch_1/brightness
     chown system system /sys/class/leds/led:switch_0/brightness
+
+    # create QDMA related dirs
+    mkdir /data/misc/qdmastats 0700 system system
+    mkdir /data/misc/qdma 0770 system system
 
 service perfd /system/vendor/bin/perfd
    class main
@@ -471,6 +480,8 @@ on property:sys.boot_completed=1
     write /sys/block/dm-1/queue/read_ahead_kb 512
     #WDSP FW boot sysfs node used by STHAL
     chown media audio /sys/kernel/wdsp0/boot
+    #CPE fw_name used by sound trigger HAL
+    chown media audio /sys/kernel/wcd_cpe0/fw_name
 
 on property:persist.radio.atfwd.start=false
     stop atfwd
@@ -569,7 +580,7 @@ on property:wc_transport.start_fmhci=true
 on property:wc_transport.start_fmhci=false
     stop fmhal_service
 
-on property:persist.wifi_dump=1
+on property:persist.download_mode=1
     write /sys/module/msm_poweroff/parameters/download_mode 1
 
 service start_hci_filter /system/bin/wcnss_filter
@@ -1210,8 +1221,12 @@ service logdumpd /system/bin/logcat -b all -v threadtime -D -w /dev/block/bootde
 on property:ro.logdumpd.enabled=1
     start logdumpd
 
-on property:vold.decrypt=trigger_restart_min_framework
-    start time_daemon
+service qdmastatsd /system/bin/qdmastatsd
+    class late_start
+    user system
+    group system
 
-on property:vold.decrypt=trigger_restart_framework
-    restart time_daemon
+service time_daemon /system/bin/time_daemon
+    class main
+    user root
+    group root

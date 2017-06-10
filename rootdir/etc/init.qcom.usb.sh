@@ -205,6 +205,7 @@ case "$target" in
         setprop sys.usb.controller "a800000.dwc3"
         setprop sys.usb.rndis.func.name "rndis_bam"
 	setprop sys.usb.rmnet.func.name "rmnet_bam"
+	echo 15916 > /sys/module/usb_f_qcrndis/parameters/rndis_dl_max_xfer_size
         ;;
     "msmskunk")
         setprop sys.usb.controller "a600000.dwc3"

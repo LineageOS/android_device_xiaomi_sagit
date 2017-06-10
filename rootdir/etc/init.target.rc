@@ -33,6 +33,7 @@ on early-init
     mkdir /dsp 0771 media media
     symlink /data/tombstones /tombstones
     write /proc/sys/kernel/sched_boost 1
+    mkdir /persist 0771 root system
 
 on init
     write /dev/stune/foreground/schedtune.sched_boost_no_override 1
@@ -61,8 +62,6 @@ on fs
     wait /dev/block/bootdevice/by-name/cache
     mount ext4 /dev/block/bootdevice/by-name/cache /cache nosuid nodev barrier=1
 
-    wait /dev/block/bootdevice/by-name/persist
-    mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev barrier=1
     mkdir /persist/data 0700 system system
     mkdir /persist/wlan_bt 0700 system system
     mkdir /persist/audio 0700 system system
@@ -107,6 +106,9 @@ on post-fs-data
     chmod 0660 /dev/sysmatdrv
     mkdir /data/misc/qvr 0770 system system
     mkdir /data/misc/goodix 0770 system system
+    mkdir /data/misc/gf_data 0770 system system
+    mkdir /data/misc/qdmastats 0700 system system
+    mkdir /data/misc/qdma 0770 system system
 
 # For cpusets initialize for Silver Only first and then Silver + Gold
 # Silver Only configuration cannot work with 0-7
@@ -571,6 +573,16 @@ service qvrd /system/vendor/bin/qvrservice
     user system
     group system camera graphics
     socket qvrservice stream 0666 system system
+
+service smcinvoked /system/vendor/bin/smcinvoked
+    class main
+    user system
+    group system
+
+service qdmastatsd /system/bin/qdmastatsd
+    class late_start
+    user system
+    group system
 
 on charger
     write /sys/class/input/input0/enabled 0
