@@ -865,8 +865,10 @@ vendor/lib/libvqzip.so
 -priv-app/QtiTetherService/QtiTetherService.apk
 vendor/lib64/libQtiTether.so
 vendor/lib64/libconnctrl.so
+vendor/lib64/libcsm_data.so
 vendor/lib/libQtiTether.so
 vendor/lib/libconnctrl.so
+vendor/lib/libcsm_data.so
 
 # NFC firmware
 vendor/firmware/libpn553_fw.so
@@ -1033,4 +1035,4 @@ vendor/lib/libqvop-service.so
 
 # WiFi
 bin/cnss-daemon
-lib/modules/qca_cld3_wlan.ko:lib/modules/wlan.ko
+lib/modules/qca_cld3/qca_cld3_wlan.ko:lib/modules/wlan.ko
