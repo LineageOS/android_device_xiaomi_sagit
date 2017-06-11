@@ -615,6 +615,9 @@ vendor/lib/libwms.so
 vendor/lib/libwqe.so
 vendor/lib/libxml.so
 
+# Consumerir
+lib64/hw/consumerir.default.so
+
 # Display calibration data
 etc/qdcm_calib_data_jdi_fhd_cmd_incell_dsi_panel.xml
 etc/qdcm_calib_data_lgd_fhd_cmd_incell_dsi_panel.xml
