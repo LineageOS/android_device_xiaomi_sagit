@@ -178,6 +178,12 @@ service per_proxy /system/bin/pm-proxy
     group system
     disabled
 
+on property:ro.boot.fingerprint=fpc
+    setprop ro.hardware.fingerprint fpc
+
+on property:ro.boot.fingerprint=goodix
+    setprop ro.hardware.fingerprint goodix
+
 on property:init.svc.per_mgr=running
     start per_proxy
 
