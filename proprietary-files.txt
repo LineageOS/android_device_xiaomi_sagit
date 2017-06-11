@@ -665,8 +665,8 @@ vendor/lib/libQSEEComAPI.so
 # Fingerprint
 lib/hw/fingerprint.fpc.so
 lib64/hw/fingerprint.fpc.so
-lib/hw/fingerprint.goodix.so:lib/hw/fingerprint.msm8998.so
-lib64/hw/fingerprint.goodix.so:lib64/hw/fingerprint.msm8998.so
+lib/hw/fingerprint.goodix.so
+lib64/hw/fingerprint.goodix.so
 lib/libgoodixfingerprintd_binder.so
 lib64/libgoodixfingerprintd_binder.so
 lib/libgf_ca.so
