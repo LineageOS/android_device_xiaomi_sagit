@@ -581,7 +581,7 @@ service qdmastatsd /system/bin/qdmastatsd
 service readmac /system/bin/readmac
     class main
     user root
-    group root
+    group qcom_diag
     oneshot
 
 on charger
