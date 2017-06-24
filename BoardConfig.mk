@@ -162,6 +162,9 @@ USE_DEVICE_SPECIFIC_GPS := true
 # Init
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
 
+# Lights
+TARGET_PROVIDES_LIBLIGHT := true
+
 # Keymaster
 TARGET_PROVIDES_KEYMASTER := true
 
