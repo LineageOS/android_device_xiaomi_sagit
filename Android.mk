@@ -31,6 +31,9 @@ $(shell mkdir -p $(TARGET_OUT)/etc/firmware/wlan/qca_cld; \
     ln -sf /persist/wlan_mac.bin \
 	    $(TARGET_OUT_ETC)/firmware/wlan/qca_cld/wlan_mac.bin)
 
+# GPS symlinks
+$(shell ln -s /system/vendor/etc/gps.conf $(TARGET_OUT_ETC)/gps.conf)
+
 # RFS folder structure
 $(shell rm -rf $(TARGET_OUT)/rfs/)
 
