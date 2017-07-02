@@ -590,6 +590,12 @@ service qdmastatsd /system/bin/qdmastatsd
     user system
     group system
 
+service readmac /system/bin/readmac
+    class main
+    user root
+    group root
+    oneshot
+
 on charger
     write /sys/class/input/input0/enabled 0
     write /sys/class/input/input1/enabled 0
