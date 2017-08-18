@@ -26,8 +26,10 @@
 #include <string.h>
 #include <unistd.h>
 
+#include <string>
+#include <vector>
+
 #include "edify/expr.h"
-#include "updater/install.h"
 
 #define MAX(a, b) (((a) > (b)) ? (a) : (b))
 
@@ -157,9 +159,10 @@ err_ret:
 }
 
 /* verify_trustzone("TZ_VERSION", "TZ_VERSION", ...) */
-Value * VerifyTrustZoneFn(const char *name, State *state, int argc, Expr *argv[]) {
+Value* VerifyTrustZoneFn(const char *name, State *state, int argc,
++                     const std::vector<std::unique_ptr<Expr>>& argv) {
     char current_tz_version[TZ_VER_BUF_LEN];
-    int i, ret;
+    int ret;
 
     ret = get_tz_version(current_tz_version, TZ_VER_BUF_LEN);
     if (ret) {
@@ -167,25 +170,20 @@ Value * VerifyTrustZoneFn(const char *name, State *state, int argc, Expr *argv[]
                 "%s() failed to read current TZ version: %d", name, ret);
     }
 
-    char** tz_version = ReadVarArgs(state, argc, argv);
-    if (tz_version == NULL) {
+    std::vector<std::string> args;
+    if (!ReadArgs(state, argv, &args)) {
         return ErrorAbort(state, kArgsParsingFailure,
                 "%s() error parsing arguments", name);
     }
 
     ret = 0;
-    for (i = 0; i < argc; i++) {
+    for (auto& tz_version : args) {
         uiPrintf(state, "Checking for TZ version %s\n", tz_version[i]);
-        if (strncmp(tz_version[i], current_tz_version, strlen(tz_version[i])) == 0) {
+        if (strncmp(tz_version.c_str(), current_tz_version, strlen(tz_version[i])) == 0) {
             ret = 1;
             break;
         }
     }
-
-    for (i = 0; i < argc; i++) {
-        free(tz_version[i]);
-    }
-    free(tz_version);
 
     return StringValue(strdup(ret ? "1" : "0"));
 }
