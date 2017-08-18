@@ -30,17 +30,19 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#include "vendor_init.h"
+#include <android-base/properties.h>
 #include "property_service.h"
-#include "log.h"
-#include "util.h"
+#include "vendor_init.h"
+
+using android::base::GetProperty;
+using android::base::SetProperty;
 
 static void init_finger_print_properties()
 {
 	if (access("/persist/fpc/calibration_image.pndat", 0) == -1) {
-		property_set("ro.boot.fingerprint", "goodix");
+		SetProperty("ro.boot.fingerprint", "goodix");
 	} else {
-		property_set("ro.boot.fingerprint", "fpc");
+		SetProperty("ro.boot.fingerprint", "fpc");
 	}
 }
 
@@ -68,18 +70,14 @@ static void init_alarm_boot_properties()
      * 7 -> CBLPWR_N pin toggled (for external power supply)
      * 8 -> KPDPWR_N pin toggled (power key pressed)
      */
-     if (boot_reason == 3) {
-        property_set("ro.alarm_boot", "true");
-     } else {
-        property_set("ro.alarm_boot", "false");
-     }
+    SetProperty("ro.alarm_boot", boot_reason == 3 ? "true" : "false");
 }
 
 void vendor_load_properties()
 {
     std::string platform;
 
-    platform = property_get("ro.board.platform");
+    platform = GetProperty("ro.board.platform", "");
     if (platform != ANDROID_TARGET)
         return;
 
