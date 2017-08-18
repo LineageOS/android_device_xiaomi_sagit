@@ -125,6 +125,10 @@
     <ctl name="MultiMedia1 Mixer SLIM_0_TX" value="0" />
     <ctl name="MultiMedia1 Mixer SLIM_4_TX" value="0" />
     <ctl name="MultiMedia1 Mixer SLIM_7_TX" value="0" />
+    <ctl name="HDMI RX Format" value="LPCM" />
+    <ctl name="HDMI_RX Bit Format" value="S16_LE" />
+    <ctl name="HDMI_RX SampleRate" value="KHZ_48" />
+    <ctl name="HDMI_RX Channels" value="Two" />
     <ctl name="HDMI Mixer MultiMedia1" value="0" />
     <ctl name="HDMI Mixer MultiMedia2" value="0" />
     <ctl name="HDMI Mixer MultiMedia3" value="0" />
@@ -139,6 +143,10 @@
     <ctl name="HDMI Mixer MultiMedia14" value="0" />
     <ctl name="HDMI Mixer MultiMedia15" value="0" />
     <ctl name="HDMI Mixer MultiMedia16" value="0" />
+    <ctl name="Display Port RX Format" value="LPCM" />
+    <ctl name="Display Port RX Bit Format" value="S16_LE" />
+    <ctl name="Display Port RX SampleRate" value="KHZ_48" />
+    <ctl name="Display Port RX Channels" value="Two" />
     <ctl name="DISPLAY_PORT Mixer MultiMedia1" value="0" />
     <ctl name="DISPLAY_PORT Mixer MultiMedia2" value="0" />
     <ctl name="DISPLAY_PORT Mixer MultiMedia3" value="0" />
