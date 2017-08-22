@@ -1,7 +1,7 @@
 $(call inherit-product, device/xiaomi/sagit/full_sagit.mk)
 
 # Inherit some common Lineage stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 PRODUCT_NAME := lineage_sagit
 PRODUCT_DEVICE := sagit
