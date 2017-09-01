@@ -289,11 +289,8 @@
 /dev/hbtp_vm              0660   system     system
 
 # Add device block for FRP
-/dev/block/platform/soc/7824900.sdhci/by-name/config    0600   system     system
-/dev/block/platform/soc/7464900.sdhci/by-name/frp       0600   system     system
-/dev/block/platform/soc/624000.ufshc/by-name/frp        0600   system     system
-/dev/block/platform/soc/1da4000.ufshc/by-name/frp       0600   system     system
-/dev/block/platform/soc/c0c4000.sdhci/by-name/frp       0600   system     system
+/dev/block/bootdevice/by-name/config    0600   system     system
+/dev/block/bootdevice/by-name/frp       0600   system     system
 
 # Kmsg device
 /dev/kmsg                                               0620   root       system
