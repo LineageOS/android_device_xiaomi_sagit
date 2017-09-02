@@ -75,8 +75,8 @@ vendor/lib64/soundfx/libshoebox.so
 # Bluetooth
 vendor/bin/btnvtool
 vendor/bin/wcnss_filter
-vendor/lib/libbtnv.so
-vendor/lib64/libbtnv.so
+-vendor/lib/libbtnv.so
+-vendor/lib64/libbtnv.so
 
 # Camera
 bin/mm-qcamera-daemon
