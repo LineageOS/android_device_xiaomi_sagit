@@ -282,7 +282,6 @@ PRODUCT_PACKAGES += \
     wificond \
     hostapd \
     readmac \
-    dhcpcd.conf \
     wpa_supplicant \
     wpa_supplicant.conf
 
