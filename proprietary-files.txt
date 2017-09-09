@@ -25,6 +25,19 @@ vendor/lib/rfsa/adsp/libscveT2T_skel.so
 vendor/lib/rfsa/adsp/libscveTextReco_skel.so
 vendor/lib/rfsa/adsp/libvpp_frc.so
 vendor/lib/rfsa/adsp/libvpp_svc_skel.so
+vendor/lib/rfsa/adsp/capi_v2_aptX_Classic.so
+vendor/lib/rfsa/adsp/capi_v2_aptX_HD.so
+vendor/lib/rfsa/adsp/dirac_resource.dar
+vendor/lib/rfsa/adsp/libFastRPC_AUE_Forward_skel.so
+vendor/lib/rfsa/adsp/libFastRPC_UTF_Forward_800h_skel.so
+vendor/lib/rfsa/adsp/libFastRPC_UTF_Forward_Qtc2_skel.so
+vendor/lib/rfsa/adsp/libFastRPC_UTF_Forward_skel.so
+vendor/lib/rfsa/adsp/libadsp_hvx_add_constant.so
+vendor/lib/rfsa/adsp/libadsp_hvx_skel.so
+vendor/lib/rfsa/adsp/libedge_smooth_skel.so
+vendor/lib/rfsa/adsp/libqvr_adsp_driver_skel.so
+vendor/lib/rfsa/adsp/libscveFaceLandmark_skel.so
+vendor/lib/rfsa/adsp/libscveVideoSummary_skel.so
 
 # Audio ACDB
 etc/acdbdata/Forte/Forte_Bluetooth_cal.acdb
@@ -34,6 +47,7 @@ etc/acdbdata/Forte/Forte_Handset_cal.acdb
 etc/acdbdata/Forte/Forte_Hdmi_cal.acdb
 etc/acdbdata/Forte/Forte_Headset_cal.acdb
 etc/acdbdata/Forte/Forte_Speaker_cal.acdb
+etc/acdbdata/Forte/Forte_workspaceFile.qwsp
 etc/acdbdata/adsp_avs_config.acdb
 
 # Audio firmware
@@ -663,10 +677,7 @@ vendor/lib64/libssd.so
 vendor/lib/libQSEEComAPI.so
 
 # Fingerprint
-lib/hw/fingerprint.fpc.so
 lib64/hw/fingerprint.fpc.so
-lib/lib_fpc_tac_shared.so
-lib64/lib_fpc_tac_shared.so
 lib/hw/fingerprint.goodix.so
 lib64/hw/fingerprint.goodix.so
 lib/libgoodixfingerprintd_binder.so
