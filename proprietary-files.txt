@@ -63,15 +63,17 @@ vendor/lib64/libacdbloader.so
 vendor/lib64/libacdbrtac.so
 vendor/lib64/libadiertac.so
 vendor/lib64/libaudcal.so
+vendor/lib64/libhwdaphal.so
 vendor/lib/soundfx/libqcbassboost.so
 vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
-vendor/lib/libadm.so
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
+vendor/lib/libadm.so
 vendor/lib/libaudcal.so
+vendor/lib/libhwdaphal.so
 
 # Bluetooth
 bin/btnvtool
@@ -693,14 +695,17 @@ vendor/lib/hw/gatekeeper.msm8998.so
 
 # GPS
 bin/loc_launcher
+bin/lowi-server
 bin/xtwifi-client
 bin/xtwifi-inet-agent
 etc/permissions/com.qti.location.sdk.xml
+etc/permissions/com.qualcomm.location.vzw_library.xml
 etc/permissions/com.qualcomm.location.xml
 etc/permissions/izat.xt.srv.xml
 etc/cacert_location.pem
 etc/xtra_root_cert.pem
 framework/com.qti.location.sdk.jar
+framework/com.qualcomm.location.vzw_library.jar
 framework/izat.xt.srv.jar
 -lib64/libloc_api_v02.so
 lib64/libloc_ds_api.so
@@ -722,6 +727,8 @@ vendor/lib64/libloc_ext.so
 vendor/lib64/liblocationservice_glue.so
 vendor/lib64/liblocationservice.so
 vendor/lib64/liblowi_client.so
+vendor/lib64/liblowi_wifihal_nl.so
+vendor/lib64/liblowi_wifihal.so
 vendor/lib64/libquipc_os_api.so
 vendor/lib64/libulp2.so
 vendor/lib64/libxt_native.so
@@ -758,6 +765,7 @@ vendor/lib64/libsdm-color.so
 vendor/lib64/libsdm-diag.so
 -vendor/lib64/libsdm-disp-apis.so
 vendor/lib64/libsdmextension.so
+vendor/lib64/libtinyxml2_1.so
 vendor/lib/egl/eglSubDriverAndroid.so
 vendor/lib/egl/libEGL_adreno.so
 vendor/lib/egl/libGLESv1_CM_adreno.so
@@ -784,6 +792,7 @@ vendor/lib/librs_adreno.so
 vendor/lib/librs_adreno_sha1.so
 vendor/lib/libsd_sdk_display.so
 -vendor/lib/libsdm-disp-apis.so
+vendor/lib/libtinyxml2_1.so
 
 # Graphics firmware
 etc/firmware/a530_gpmu.fw2
@@ -807,8 +816,10 @@ bin/imscmservice
 bin/imsdatadaemon
 bin/imsqmidaemon
 etc/permissions/imscm.xml
+etc/permissions/qti-vzw-ims-internal.xml
 framework/imscmlibrary.jar
 framework/rcsimssettings.jar
+vendor/framework/qti-vzw-ims-internal.jar
 -vendor/app/ims/ims.apk
 -vendor/app/imssettings/imssettings.apk
 vendor/lib64/lib-dplmedia.so
@@ -837,8 +848,6 @@ vendor/lib64/libvoice-svc.so
 
 # IPA
 bin/ipacm-diag
-
-# IPA FWs
 etc/firmware/ipa_fws.b00
 etc/firmware/ipa_fws.b01
 etc/firmware/ipa_fws.b02
@@ -862,18 +871,21 @@ lib64/libvpplibrary.so
 lib/libOmxVpp.so
 lib/libvpplibrary.so
 vendor/lib64/libI420colorconvert.so
+vendor/lib64/libmiracast.so
+vendor/lib64/libmm-color-convertor.so
+vendor/lib64/libmmosal.so
 vendor/lib64/libOmxAacDec.so
 vendor/lib64/libOmxEvrcDec.so
 vendor/lib64/libOmxQcelp13Dec.so
-vendor/lib64/libmm-color-convertor.so
-vendor/lib64/libmmosal.so
 vendor/lib64/libvpphvx.so
 vendor/lib/libI420colorconvert.so
-vendor/lib/libOmxAacDec.so
-vendor/lib/libOmxEvrcDec.so
-vendor/lib/libOmxQcelp13Dec.so
+vendor/lib/libmiracast.so
 vendor/lib/libmm-color-convertor.so
 vendor/lib/libmmosal.so
+vendor/lib/libOmxAacDec.so
+vendor/lib/libOmxEvrcDec.so
+vendor/lib/libOmxVideoDSMode.so
+vendor/lib/libOmxQcelp13Dec.so
 vendor/lib/libvpphvx.so
 vendor/lib/libvqzip.so
 
