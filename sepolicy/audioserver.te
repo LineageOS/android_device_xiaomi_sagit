@@ -1,0 +1,3 @@
+allow audioserver persist_file:dir search;
+
+r_dir_file(audioserver, persist_usf_cal_file)

@@ -1,0 +1,4 @@
+type captouch_device, dev_type;
+type lirc_device, dev_type;
+type sound_device, dev_type;
+type sysmatdrv_device, dev_type;

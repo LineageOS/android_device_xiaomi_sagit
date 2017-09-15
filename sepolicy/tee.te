@@ -1,0 +1,2 @@
+allow tee persist_qc_senseid_file:dir create_dir_perms;
+allow tee persist_qc_senseid_file:file create_file_perms;

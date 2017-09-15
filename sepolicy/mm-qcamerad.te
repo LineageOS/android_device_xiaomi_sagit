@@ -1,0 +1,3 @@
+r_dir_file(mm-qcamerad, dsp_file)
+
+unix_socket_connect(mm-qcamerad, mpctl, perfd)
