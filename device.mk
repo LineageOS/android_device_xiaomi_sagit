@@ -246,6 +246,9 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     ueventd.qcom.rc
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/bin/init.qti.qseecomd.sh:system/bin/init.qti.qseecomd.sh
+
 # Recovery
 PRODUCT_PACKAGES += \
     librecovery_updater_sagit
