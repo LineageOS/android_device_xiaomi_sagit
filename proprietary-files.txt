@@ -923,9 +923,6 @@ vendor/lib/libqti-perfd-client.so
 vendor/lib/libqti-util.so
 vendor/lib/libqti-utils.so
 
-# QCOM post_boot
-etc/init.qcom.post_boot.sh
-
 # Peripheral manager
 bin/pm-proxy
 bin/pm-service
