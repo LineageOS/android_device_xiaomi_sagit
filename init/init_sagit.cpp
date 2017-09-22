@@ -29,7 +29,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys/sysinfo.h>
 
 #include "vendor_init.h"
 #include "property_service.h"
@@ -100,23 +99,6 @@ static void init_alarm_boot_properties()
      }
 }
 
-void check_device()
-{
-    struct sysinfo sys;
-
-    sysinfo(&sys);
-
-    if (sys.totalram > 3072ull * 1024 * 1024) {
-        // from - phone-xxxhdpi-4096-dalvik-heap.mk
-        heapminfree = "4m";
-        heapmaxfree = "16m";
-    } else {
-        // from - phone-xxhdpi-3072-dalvik-heap.mk
-        heapminfree = "512k";
-        heapmaxfree = "8m";
-    }
-}
-
 void vendor_load_properties()
 {
     std::string platform;
@@ -124,15 +106,6 @@ void vendor_load_properties()
     platform = property_get("ro.board.platform");
     if (platform != ANDROID_TARGET)
         return;
-
-    check_device();
-
-    property_set("dalvik.vm.heapstartsize", "8m");
-    property_set("dalvik.vm.heapgrowthlimit", "256m");
-    property_set("dalvik.vm.heapsize", "512m");
-    property_set("dalvik.vm.heaptargetutilization", "0.75");
-    property_set("dalvik.vm.heapminfree", heapminfree);
-    property_set("dalvik.vm.heapmaxfree", heapmaxfree);
 
     init_alarm_boot_properties();
     init_finger_print_properties();
