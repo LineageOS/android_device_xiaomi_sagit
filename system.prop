@@ -241,7 +241,7 @@ persist.radio.dynamic_sar=false
 persist.radio.VT_CAM_INTERFACE=1
 
 #Expose tele camera for below packages
-camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,com.miui.cit
+camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,com.miui.cit,org.cyanogenmod.snap
 
 #Supported SE type
 ro.se.type=eSE,HCE
