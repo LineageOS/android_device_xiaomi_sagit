@@ -34,12 +34,17 @@
 
 #include <hardware/lights.h>
 
+#ifndef DEFAULT_LOW_PERSISTENCE_MODE_BRIGHTNESS
+#define DEFAULT_LOW_PERSISTENCE_MODE_BRIGHTNESS 0x80
+#endif
+
 static pthread_once_t g_init = PTHREAD_ONCE_INIT;
 static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
 
 static struct light_state_t g_attention;
 static struct light_state_t g_notification;
 static struct light_state_t g_battery;
+static int g_last_backlight_mode = BRIGHTNESS_MODE_USER;
 
 #define BUTTON_1_BRIGHTNESS_FILE "/sys/class/leds/button-backlight/brightness"
 #define BUTTON_2_BRIGHTNESS_FILE "/sys/class/leds/button-backlight1/brightness"
@@ -67,6 +72,9 @@ static int hw_buttons;
 #define WHITE_RAMP_STEP_MS_FILE "/sys/class/leds/white/ramp_step_ms"
 
 #define WHITE_BLINK_FILE "/sys/class/leds/white/blink"
+
+char const*const PERSISTENCE_FILE
+        = "/sys/class/graphics/fb0/msm_fb_persist_mode";
 
 #define RAMP_SIZE 8
 static int BRIGHTNESS_RAMP[RAMP_SIZE] = { 0, 12, 25, 37, 50, 72, 85, 100 };
@@ -183,6 +191,8 @@ static int set_light_backlight(struct light_device_t* dev,
 {
     int err = 0;
     int brightness = rgb_to_brightness(state);
+    unsigned int lpEnabled =
+        state->brightnessMode == BRIGHTNESS_MODE_LOW_PERSISTENCE;
 
     if (!dev)
         return -1;
@@ -196,7 +206,25 @@ static int set_light_backlight(struct light_device_t* dev,
     }
 
     pthread_mutex_lock(&g_lock);
-    err = write_int(LCD_BRIGHTNESS_FILE, brightness);
+    // Toggle low persistence mode state
+    if ((g_last_backlight_mode != state->brightnessMode && lpEnabled) ||
+        (!lpEnabled &&
+         g_last_backlight_mode == BRIGHTNESS_MODE_LOW_PERSISTENCE)) {
+        if ((err = write_int(PERSISTENCE_FILE, lpEnabled)) != 0) {
+            ALOGE("%s: Failed to write to %s: %s\n", __FUNCTION__,
+                   PERSISTENCE_FILE, strerror(errno));
+        }
+        if (lpEnabled != 0) {
+            brightness = DEFAULT_LOW_PERSISTENCE_MODE_BRIGHTNESS;
+        }
+    }
+
+    g_last_backlight_mode = state->brightnessMode;
+
+    if (!err) {
+        err = write_int(LCD_BRIGHTNESS_FILE, brightness);
+    }
+
     pthread_mutex_unlock(&g_lock);
     return err;
 }
