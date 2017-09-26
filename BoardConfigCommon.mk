@@ -15,9 +15,9 @@
 
 BOARD_VENDOR := xiaomi
 
-DEVICE_PATH := device/xiaomi/sagit
+PLATFORM_PATH := device/xiaomi/msm8998-common
 
-TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
+TARGET_SPECIFIC_HEADER_PATH := $(PLATFORM_PATH)/include
 
 # Architecture
 TARGET_ARCH := arm64
@@ -50,7 +50,6 @@ BOARD_RAMDISK_OFFSET := 0x01000000
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8998
-TARGET_KERNEL_CONFIG := sagit_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 
 # Platform
@@ -61,8 +60,7 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno540
 BOARD_ANT_WIRELESS_DEVICE := "qualcomm-uart"
 
 # Assert
-TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
-TARGET_OTA_ASSERT_DEVICE := sagit
+TARGET_BOARD_INFO_FILE := $(PLATFORM_PATH)/board-info.txt
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
@@ -124,7 +122,7 @@ USE_CUSTOM_AUDIO_POLICY := 1
 USE_XML_AUDIO_POLICY_CONF := 1
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(PLATFORM_PATH)/bluetooth
 BOARD_BLUETOOTH_BDROID_HCILP_INCLUDED := false
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
@@ -140,8 +138,7 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 
 # CM Hardware
 BOARD_HARDWARE_CLASS += \
-    hardware/cyanogen/cmhw \
-    $(DEVICE_PATH)/cmhw
+    hardware/cyanogen/cmhw
 BOARD_USES_CYANOGEN_HARDWARE := true
 TARGET_TAP_TO_WAKE_NODE :=  "/proc/touchpanel/double_tap_enable"
 
@@ -174,6 +171,9 @@ SF_VSYNC_EVENT_PHASE_OFFSET_NS := 0
 
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := true
+
+# Filesystem
+TARGET_ANDROID_FILESYSTEM_CONFIG_H := $(PLATFORM_PATH)/android_filesystem_config.h
 
 # GPS
 TARGET_NO_RPC := true
@@ -210,14 +210,14 @@ BOARD_USES_QC_TIME_SERVICES := true
 TARGET_USE_SDCLANG := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/root/fstab.qcom
+TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/rootdir/root/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_USERIMAGES_USE_EXT4 := true
 #TARGET_USERIMAGES_USE_F2FS := true
 
 # Releasetools
-TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_sagit
-TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
+TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_xiaomi
+TARGET_RELEASETOOLS_EXTENSIONS := $(PLATFORM_PATH)
 
 # RIL
 PROTOBUF_SUPPORTED := true
@@ -226,14 +226,14 @@ TARGET_RIL_VARIANT := caf
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 
-BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
+BOARD_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy
 
 # Sensors
 USE_SENSOR_MULTI_HAL := true
 
 # Vendor init
-TARGET_INIT_VENDOR_LIB := libinit_sagit
-TARGET_RECOVERY_DEVICE_MODULES := libinit_sagit
+TARGET_INIT_VENDOR_LIB := libinit_msm8998
+TARGET_RECOVERY_DEVICE_MODULES := libinit_msm8998
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
@@ -252,7 +252,4 @@ WIFI_DRIVER_MODULE_NAME := "wlan"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Properties
-TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
-
-# inherit from the proprietary version
--include vendor/xiaomi/sagit/BoardConfigVendor.mk
+TARGET_SYSTEM_PROP += $(PLATFORM_PATH)/system.prop
