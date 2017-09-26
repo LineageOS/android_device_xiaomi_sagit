@@ -31,6 +31,6 @@ def AddTrustZoneAssertion(info, input_zip):
   if m:
     versions = m.group(1).split('|')
     if len(versions) and '*' not in versions:
-      cmd = 'assert(sagit.verify_trustzone(' + ','.join(['"%s"' % tz for tz in versions]) + ') == "1");'
+      cmd = 'assert(xiaomi.verify_trustzone(' + ','.join(['"%s"' % tz for tz in versions]) + ') == "1");'
       info.script.AppendExtra(cmd)
   return
