@@ -35,15 +35,6 @@
 #include "log.h"
 #include "util.h"
 
-static void init_finger_print_properties()
-{
-	if (access("/persist/fpc/calibration_image.pndat", 0) == -1) {
-		property_set("ro.boot.fingerprint", "goodix");
-	} else {
-		property_set("ro.boot.fingerprint", "fpc");
-	}
-}
-
 static void init_alarm_boot_properties()
 {
     int boot_reason;
@@ -84,5 +75,4 @@ void vendor_load_properties()
         return;
 
     init_alarm_boot_properties();
-    init_finger_print_properties();
 }
