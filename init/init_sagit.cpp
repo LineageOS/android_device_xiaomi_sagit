@@ -28,7 +28,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 #include "vendor_init.h"
 #include "property_service.h"
@@ -37,36 +36,6 @@
 
 char const *heapminfree;
 char const *heapmaxfree;
-
-static void init_finger_print_properties()
-{
-
-    /*
-     * Xiaomi uses /proc/hwinfo to display some hardware information.
-     * This interface can be found on stock miui kernel.
-     * Currently last line on sagit is fingerprint info.
-     * But they delete it from oss kernel.
-     */
-
-    char fp_vendor[64];
-    char goodix_fp[] = "Fingerprint: Goodix";
-    FILE *fp;
-
-    fp = fopen("/proc/hwinfo", "r");
-
-    while(!feof(fp))
-    {
-        fgets(fp_vendor, sizeof(fp_vendor), fp);
-    }
-    fclose(fp);
-
-    if (strcmp(goodix_fp, fp_vendor)) {
-        property_set("ro.boot.fingerprint", "goodix");
-    } else {
-        property_set("ro.boot.fingerprint", "fpc");
-    }
-
-}
 
 static void init_alarm_boot_properties()
 {
@@ -108,5 +77,4 @@ void vendor_load_properties()
         return;
 
     init_alarm_boot_properties();
-    init_finger_print_properties();
 }
