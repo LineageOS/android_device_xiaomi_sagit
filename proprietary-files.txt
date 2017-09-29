@@ -52,6 +52,7 @@ etc/acdbdata/adsp_avs_config.acdb
 
 # Audio firmware
 etc/firmware/tfa98xx_aac.cnt
+etc/firmware/tfa98xx_ssi.cnt
 
 # Audio libraries
 lib/soundfx/libdirac.so
@@ -213,7 +214,6 @@ vendor/lib/libarcsoft_dualcam_optical_zoom.so
 # Camera actuator
 vendor/lib/libactuator_centaur_imx386_ak7371_primax.so
 vendor/lib/libactuator_centaur_s5k3m3_ak7371_primax.so
-vendor/lib/libactuator_chiron_imx386_ak7372_semco.so
 vendor/lib/libactuator_ak7371_s5k3m3_semco.so
 vendor/lib/libactuator_ak7371.so
 
@@ -249,37 +249,6 @@ vendor/lib/libchromatix_centaur_imx386_primax_video_hdr.so
 vendor/lib/libchromatix_centaur_imx386_primax_video.so
 vendor/lib/libchromatix_centaur_imx386_primax_zsl_preview.so
 vendor/lib/libchromatix_centaur_imx386_primax_zsl_video.so
-vendor/lib/libchromatix_chiron_imx386_semco_4K_preview.so
-vendor/lib/libchromatix_chiron_imx386_semco_4K_video.so
-vendor/lib/libchromatix_chiron_imx386_semco_common.so
-vendor/lib/libchromatix_chiron_imx386_semco_cpp_hfr_120.so
-vendor/lib/libchromatix_chiron_imx386_semco_cpp_hfr_60.so
-vendor/lib/libchromatix_chiron_imx386_semco_cpp_hfr_90.so
-vendor/lib/libchromatix_chiron_imx386_semco_cpp_liveshot.so
-vendor/lib/libchromatix_chiron_imx386_semco_cpp_preview.so
-vendor/lib/libchromatix_chiron_imx386_semco_cpp_snapshot_hdr.so
-vendor/lib/libchromatix_chiron_imx386_semco_cpp_snapshot.so
-vendor/lib/libchromatix_chiron_imx386_semco_cpp_video_hdr.so
-vendor/lib/libchromatix_chiron_imx386_semco_cpp_video.so
-vendor/lib/libchromatix_chiron_imx386_semco_default_preview.so
-vendor/lib/libchromatix_chiron_imx386_semco_default_video.so
-vendor/lib/libchromatix_chiron_imx386_semco_hdr_snapshot_3a.so
-vendor/lib/libchromatix_chiron_imx386_semco_hdr_video_3a.so
-vendor/lib/libchromatix_chiron_imx386_semco_hfr_120_3a.so
-vendor/lib/libchromatix_chiron_imx386_semco_hfr_120.so
-vendor/lib/libchromatix_chiron_imx386_semco_hfr_60_3a.so
-vendor/lib/libchromatix_chiron_imx386_semco_hfr_60.so
-vendor/lib/libchromatix_chiron_imx386_semco_hfr_90_3a.so
-vendor/lib/libchromatix_chiron_imx386_semco_hfr_90.so
-vendor/lib/libchromatix_chiron_imx386_semco_liveshot.so
-vendor/lib/libchromatix_chiron_imx386_semco_postproc.so
-vendor/lib/libchromatix_chiron_imx386_semco_preview.so
-vendor/lib/libchromatix_chiron_imx386_semco_snapshot_hdr.so
-vendor/lib/libchromatix_chiron_imx386_semco_snapshot.so
-vendor/lib/libchromatix_chiron_imx386_semco_video_hdr.so
-vendor/lib/libchromatix_chiron_imx386_semco_video.so
-vendor/lib/libchromatix_chiron_imx386_semco_zsl_preview.so
-vendor/lib/libchromatix_chiron_imx386_semco_zsl_video.so
 vendor/lib/libchromatix_imx386_ofilm_4K_preview.so
 vendor/lib/libchromatix_imx386_ofilm_4K_video.so
 vendor/lib/libchromatix_imx386_ofilm_common.so
@@ -489,27 +458,6 @@ vendor/lib/libchromatix_s5k3m3_semco_snapshot.so
 vendor/lib/libchromatix_s5k3m3_semco_video_4k.so
 vendor/lib/libchromatix_s5k3m3_semco_zsl_preview_ad5816g.so
 vendor/lib/libchromatix_s5k3m3_semco_zsl_video_ad5816g.so
-vendor/lib/libchromatix_s5k3m3sm_4k_preview_3a.so
-vendor/lib/libchromatix_s5k3m3sm_4k_video_3a.so
-vendor/lib/libchromatix_s5k3m3sm_common.so
-vendor/lib/libchromatix_s5k3m3sm_cpp_hfr_60.so
-vendor/lib/libchromatix_s5k3m3sm_cpp_liveshot.so
-vendor/lib/libchromatix_s5k3m3sm_cpp_preview.so
-vendor/lib/libchromatix_s5k3m3sm_cpp_snapshot.so
-vendor/lib/libchromatix_s5k3m3sm_cpp_video_4k.so
-vendor/lib/libchromatix_s5k3m3sm_cpp_video.so
-vendor/lib/libchromatix_s5k3m3sm_default_preview_3a.so
-vendor/lib/libchromatix_s5k3m3sm_default_video_3a.so
-vendor/lib/libchromatix_s5k3m3sm_hfr60_3a.so
-vendor/lib/libchromatix_s5k3m3sm_hfr_60.so
-vendor/lib/libchromatix_s5k3m3sm_liveshot.so
-vendor/lib/libchromatix_s5k3m3sm_postproc.so
-vendor/lib/libchromatix_s5k3m3sm_preview.so
-vendor/lib/libchromatix_s5k3m3sm_snapshot.so
-vendor/lib/libchromatix_s5k3m3sm_video_4k.so
-vendor/lib/libchromatix_s5k3m3sm_video.so
-vendor/lib/libchromatix_s5k3m3sm_zsl_preview_3a.so
-vendor/lib/libchromatix_s5k3m3sm_zsl_video_3a.so
 
 # Camera configs
 etc/camera/camera_config.xml
@@ -519,6 +467,7 @@ etc/camera/imx268_chromatix.xml
 etc/camera/sagit_imx268_liteon_chromatix.xml
 
 # Camera eeproms
+vendor/lib/libSonyIMX386PdafLibrary.so
 vendor/lib/libmmcamera_centaur_imx268_ofilm_eeprom.so
 vendor/lib/libmmcamera_centaur_imx268_ofilm.so
 vendor/lib/libmmcamera_imx268.so
@@ -527,17 +476,13 @@ vendor/lib/libmmcamera_sagit_imx268_liteon.so
 vendor/lib/libmmcamera_sagit_imx268_primax_eeprom.so
 vendor/lib/libmmcamera_centaur_imx386_primax_eeprom.so
 vendor/lib/libmmcamera_centaur_imx386_primax.so
-vendor/lib/libmmcamera_chiron_imx386_semco_eeprom.so
-vendor/lib/libmmcamera_chiron_imx386_semco.so
 vendor/lib/libmmcamera_imx386_ofilm.so
 vendor/lib/libmmcamera_imx386_semco.so
 vendor/lib/libmmcamera_sagit_imx386_semco_eeprom.so
-vendor/lib/libSonyIMX386PdafLibrary.so
 vendor/lib/libmmcamera_centaur_s5k3m3_primax_eeprom.so
 vendor/lib/libmmcamera_centaur_s5k3m3_primax.so
 vendor/lib/libmmcamera_s5k3m3_ofilm.so
 vendor/lib/libmmcamera_s5k3m3_semco.so
-vendor/lib/libmmcamera_s5k3m3sm.so
 vendor/lib/libmmcamera_sagit_s5k3m3_semco_eeprom.so
 
 # Camera firmware
