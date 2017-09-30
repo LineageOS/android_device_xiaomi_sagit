@@ -673,17 +673,13 @@ lib64/libOmxVpp.so
 lib64/libvpplibrary.so
 lib/libOmxVpp.so
 lib/libvpplibrary.so
-vendor/lib64/libI420colorconvert.so
 vendor/lib64/libmiracast.so
-vendor/lib64/libmm-color-convertor.so
 vendor/lib64/libmmosal.so
 vendor/lib64/libOmxAacDec.so
 vendor/lib64/libOmxEvrcDec.so
 vendor/lib64/libOmxQcelp13Dec.so
 vendor/lib64/libvpphvx.so
-vendor/lib/libI420colorconvert.so
 vendor/lib/libmiracast.so
-vendor/lib/libmm-color-convertor.so
 vendor/lib/libmmosal.so
 vendor/lib/libOmxAacDec.so
 vendor/lib/libOmxEvrcDec.so
