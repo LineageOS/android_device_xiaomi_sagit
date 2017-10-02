@@ -49,6 +49,9 @@ on init
     # chmod node /dev/gpio_rf
     chmod 0644 /dev/gpio_rf
 
+    write /sys/devices/soc/c179000.i2c/i2c-5/5-0020/input/input1/reversed_keys 1
+    write /sys/devices/soc/c179000.i2c/i2c-5/5-0020/input/input7/reversed_keys 1
+
 on fs
     wait /dev/block/platform/soc/1da4000.ufshc
     symlink /dev/block/platform/soc/1da4000.ufshc /dev/block/bootdevice
