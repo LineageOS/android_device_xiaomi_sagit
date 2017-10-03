@@ -1,0 +1,6 @@
+allow wcnss_service media_rw_data_file:file { rw_file_perms rename unlink };
+allow wcnss_service media_rw_data_file:dir { rw_dir_perms rename unlink };
+allow wcnss_service sdcardfs:file {rw_file_perms create_file_perms };
+allow wcnss_service sdcardfs:dir rw_dir_perms;
+allow wcnss_service shell_exec:file { r_file_perms execute execute_no_trans };
+allow wcnss_service toolbox_exec:file { r_file_perms execute execute_no_trans };

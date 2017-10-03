@@ -1,1 +1,1 @@
-type qfp_proxy_service, service_manager_type;
+type sms_secure_service, service_manager_type;

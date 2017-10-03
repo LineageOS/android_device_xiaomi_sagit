@@ -52,7 +52,6 @@ on init
 
 on post-fs
     chmod 0755 /sys/kernel/debug/tracing
-    restorecon /sys/kernel/debug/tracing/trace_marker
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB

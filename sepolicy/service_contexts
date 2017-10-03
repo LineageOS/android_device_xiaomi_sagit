@@ -1,1 +1,2 @@
-android.apps.IQfpAndroidService                u:object_r:qfp_proxy_service:s0
+sms-sec                                                          u:object_r:sms_secure_service:s0
+android.hardware.fingerprint.IGoodixFingerprintDaemon            u:object_r:fingerprintd_service:s0

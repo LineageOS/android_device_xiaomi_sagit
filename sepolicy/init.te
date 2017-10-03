@@ -1,1 +1,3 @@
 allow init debugfs:file write;
+
+allow init goodix_fpd_device:chr_file setattr;
