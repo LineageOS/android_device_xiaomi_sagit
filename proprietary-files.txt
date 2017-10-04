@@ -75,6 +75,7 @@ vendor/lib/libadiertac.so
 vendor/lib/libadm.so
 vendor/lib/libaudcal.so
 vendor/lib/libhwdaphal.so
+vendor/lib/libqtigef.so
 
 # Bluetooth
 bin/btnvtool
