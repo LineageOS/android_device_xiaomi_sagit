@@ -1,4 +1,5 @@
 type fpc_data_file, file_type;
+type fpc_persist_file, file_type;
 type goodix_data_file, file_type;
 type goodix_fpd_device, file_type;
 type dsp_file, fs_type, contextmount_type;

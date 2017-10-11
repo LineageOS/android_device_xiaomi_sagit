@@ -10,6 +10,9 @@
 # Goodix
 /dev/goodix_fp*                                                       u:object_r:goodix_fpd_device:s0
 
+# Persist
+/persist/fpc(/.*)?                     u:object_r:fpc_persist_file:s0
+
 # Sys files
 /sys/devices/soc/soc:fingerprint_fpc/irq                                            u:object_r:sysfs_fpc:s0
 /sys/devices/soc/soc:fingerprint_fpc/enable_key_events                              u:object_r:sysfs_fpc_keyevents:s0

@@ -3,6 +3,14 @@ r_dir_file(fingerprintd, firmware_file)
 
 allow fingerprintd fingerprint_service:service_manager find;
 
+allow fingerprintd sysfs:file { open write };
+allow fingerprintd fpc_persist_file:file { open read };
+allow fingerprintd property_socket:sock_file { write };
+allow fingerprintd mpctl_socket:sock_file { write };
+allow fingerprintd init:unix_stream_socket { connectto };
+allow fingerprintd perfd:unix_stream_socket { connectto };
+allow fingerprintd fp_pnstatus_prop:property_service { set };
+
 allow fingerprintd fingerprintd:netlink_socket { create bind read write };
 allow fingerprintd fpc_data_file:dir rw_dir_perms;
 allow fingerprintd fpc_data_file:file create_file_perms;
