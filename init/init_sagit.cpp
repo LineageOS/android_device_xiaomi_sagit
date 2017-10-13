@@ -28,6 +28,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 #include "vendor_init.h"
 #include "property_service.h"
@@ -36,6 +37,15 @@
 
 char const *heapminfree;
 char const *heapmaxfree;
+
+static void init_finger_print_properties()
+{
+	if (access("/persist/fpc/calibration_image.pndat", 0) == -1) {
+		property_set("ro.boot.fingerprint", "goodix");
+	} else {
+		property_set("ro.boot.fingerprint", "fpc");
+	}
+}
 
 static void init_alarm_boot_properties()
 {
@@ -77,4 +87,5 @@ void vendor_load_properties()
         return;
 
     init_alarm_boot_properties();
+    init_finger_print_properties();
 }
