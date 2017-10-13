@@ -1,6 +1,3 @@
-# fingerprint
-ro.boot.fingerprint=goodix
-
 ro.sf.lcd_density=480
 
 # System property for AD
