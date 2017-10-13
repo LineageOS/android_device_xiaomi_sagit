@@ -155,6 +155,12 @@ on boot
     chmod 0660 /sys/devices/soc/c179000.i2c/i2c-5/5-0020/input/input1/wake_gesture
     chown system system /sys/devices/soc/c179000.i2c/i2c-5/5-0020/input/input1/wake_gesture
 
+    # KeyDisabler permissions
+    chown system system /sys/module/gf_spi/parameters/report_home_events
+    chown system system /sys/devices/soc/soc:fingerprint_fpc/enable_key_events
+    chmod 0660 /sys/module/gf_spi/parameters/report_home_events
+    chmod 0660 /sys/devices/soc/soc:fingerprint_fpc/enable_key_events
+
     setprop wifi.interface wlan0
 
 #   Define TCP buffer sizes for various networks
