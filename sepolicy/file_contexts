@@ -10,8 +10,12 @@
 # Goodix
 /dev/goodix_fp*                                                       u:object_r:goodix_fpd_device:s0
 
+# Peel IR
+/dev/peel_ir                          u:object_r:peel_ir_device:s0
+
 # Persist
-/persist/fpc(/.*)?                     u:object_r:fpc_persist_file:s0
+/persist/fpc(/.*)?                      u:object_r:fpc_persist_file:s0
+/persist/rfs/msm/mpss/server_check.txt				u:object_r:tftp_server_check_file:s0
 
 # Sys files
 /sys/devices/soc/soc:fingerprint_fpc/irq                                            u:object_r:sysfs_fpc:s0

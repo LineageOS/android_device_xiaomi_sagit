@@ -23,6 +23,7 @@ allow fingerprintd goodix_fpd_device:chr_file { create setattr };
 allow fingerprintd sysfs_fpc:dir r_dir_perms;
 allow fingerprintd sysfs_fpc:file rw_file_perms;
 allow fingerprintd sysmatdrv_device:chr_file w_file_perms;
+allow fingerprintd system_prop:property_service { set };
 allow fingerprintd tee_device:chr_file rw_file_perms;
 allow fingerprintd uhid_device:chr_file rw_file_perms;
 
