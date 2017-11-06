@@ -34,6 +34,11 @@ echo 100 > /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms
 echo 1 > /sys/devices/system/cpu/cpu4/core_ctl/is_big_cluster
 echo 4 > /sys/devices/system/cpu/cpu4/core_ctl/task_thres
 
+# Enable Adaptive LMK
+echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
+echo "18432,23040,27648,51256,150296,200640" > /sys/module/lowmemorykiller/parameters/minfree
+echo 162500 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
+
 # Setting b.L scheduler parameters
 echo 1 > /proc/sys/kernel/sched_migration_fixup
 echo 95 > /proc/sys/kernel/sched_upmigrate
