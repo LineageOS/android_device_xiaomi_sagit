@@ -104,6 +104,17 @@ ro.bluetooth.a4wp=false
 ro.bluetooth.emb_wp_mode=false
 ro.bluetooth.wipower=false
 
+ro.qualcomm.bluetooth.opp=true
+ro.qualcomm.bluetooth.hfp=true
+ro.qualcomm.bluetooth.hsp=true
+ro.qualcomm.bluetooth.pbap=true
+ro.qualcomm.bluetooth.ftp=true
+ro.qualcomm.bluetooth.nap=true
+ro.bluetooth.sap=true
+ro.bluetooth.dun=true
+ro.qualcomm.bluetooth.map=true
+ro.bluetooth.hfp.ver=1.6
+
 #system prop for RmNet Data
 persist.rmnet.data.enable=true
 persist.data.wda.enable=true
