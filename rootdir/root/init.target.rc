@@ -43,14 +43,13 @@ on init
     write /dev/stune/system-background/schedtune.colocate 0
     write /dev/stune/foreground/schedtune.colocate 0
     write /dev/stune/top-app/schedtune.colocate 1
-    # Goodix fingerprint
-    chown system system /dev/goodix_fp
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
-    # chmod node /dev/gpio_rf
     chmod 0644 /dev/gpio_rf
 
-    write /sys/devices/soc/c179000.i2c/i2c-5/5-0020/input/input1/reversed_keys 1
-    write /sys/devices/soc/c179000.i2c/i2c-5/5-0020/input/input7/reversed_keys 1
+    # Goodix fingerprint
+    chown system system /dev/goodix_fp
+
+    write /proc/touchpanel/reversed_keys 1
 
 on fs
     wait /dev/block/platform/soc/1da4000.ufshc
@@ -105,7 +104,6 @@ on post-fs-data
 # Silver Only configuration cannot work with 0-7
 on boot
     start rmt_storage
-    start rfs_access
     write /dev/cpuset/top-app/cpus 0-3
     write /dev/cpuset/foreground/cpus 0-3
     write /dev/cpuset/foreground/boost/cpus 0-3
@@ -118,37 +116,38 @@ on boot
     write /dev/cpuset/system-background/cpus 0-7
     chmod 0660 /dev/pn553
     chown nfc nfc /dev/pn553
-   ####Regionalization config and prop files####
-   chmod 0644 /persist/speccfg/spec
-   chmod 0644 /persist/speccfg/devicetype
-   chmod 0644 /persist/speccfg/mbnversion
-   chmod 0644 /persist/speccfg/.not_triggered
-   chmod 0644 /persist/speccfg/vendor_ro.prop
-   chmod 0644 /persist/speccfg/vendor_persist.prop
-   chmod 0644 /persist/speccfg/submask
-   chmod 0644 /persist/speccfg/partition
-   chown system system /persist/speccfg/spec
-   chown system system /persist/speccfg/devicetype
-   chown system system /persist/speccfg/mbnversion
-   chown system system /persist/speccfg/.not_triggered
-   chown system system /persist/speccfg/vendor_ro.prop
-   chown system system /persist/speccfg/vendor_persist.prop
-   chown system system /persist/speccfg/submask
-   chown system system /persist/speccfg/partition
 
-   chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/irq
-   chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/wakeup_enable
-   chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/hw_reset
-   chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/device_prepare
-   chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/vendor
-   chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/fingerdown_wait
-   chown system system /data/fpc/calibration_image.pndat
-   chmod 0700 /sys/bus/platform/devices/soc:fingerprint_fpc/irq
-   chmod 0700 /sys/bus/platform/devices/soc:fingerprint_fpc/wakeup_enable
-   chmod 0700 /sys/bus/platform/devices/soc:fingerprint_fpc/hw_reset
-   chmod 0700 /sys/bus/platform/devices/soc:fingerprint_fpc/device_prepare
-   chmod 0700 /sys/bus/platform/devices/soc:fingerprint_fpc/vendor
-   chmod 0600 /data/fpc/calibration_image.pndat
+    # Regionalization config and prop files
+    chmod 0644 /persist/speccfg/spec
+    chmod 0644 /persist/speccfg/devicetype
+    chmod 0644 /persist/speccfg/mbnversion
+    chmod 0644 /persist/speccfg/.not_triggered
+    chmod 0644 /persist/speccfg/vendor_ro.prop
+    chmod 0644 /persist/speccfg/vendor_persist.prop
+    chmod 0644 /persist/speccfg/submask
+    chmod 0644 /persist/speccfg/partition
+    chown system system /persist/speccfg/spec
+    chown system system /persist/speccfg/devicetype
+    chown system system /persist/speccfg/mbnversion
+    chown system system /persist/speccfg/.not_triggered
+    chown system system /persist/speccfg/vendor_ro.prop
+    chown system system /persist/speccfg/vendor_persist.prop
+    chown system system /persist/speccfg/submask
+    chown system system /persist/speccfg/partition
+
+    chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/irq
+    chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/wakeup_enable
+    chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/hw_reset
+    chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/device_prepare
+    chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/vendor
+    chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/fingerdown_wait
+    chown system system /data/fpc/calibration_image.pndat
+    chmod 0700 /sys/bus/platform/devices/soc:fingerprint_fpc/irq
+    chmod 0700 /sys/bus/platform/devices/soc:fingerprint_fpc/wakeup_enable
+    chmod 0700 /sys/bus/platform/devices/soc:fingerprint_fpc/hw_reset
+    chmod 0700 /sys/bus/platform/devices/soc:fingerprint_fpc/device_prepare
+    chmod 0700 /sys/bus/platform/devices/soc:fingerprint_fpc/vendor
+    chmod 0600 /data/fpc/calibration_image.pndat
 
 # access permission for Speaker SmartPA
     chmod 0666 /dev/i2c-10
@@ -193,50 +192,12 @@ service qvop-daemon /system/bin/qvop-daemon
     class late_start
     user system
     group system drmrpc
-#on post-fs
-#    export LD_PRELOAD /vendor/lib/libNimsWrap.so
-#
-## Allow usb charging to be disabled peristently
-#on property:persist.usb.chgdisabled=1
-#    write /sys/class/power_supply/battery/charging_enabled 0
-#
-#on property:persist.usb.chgdisabled=0
-#    write /sys/class/power_supply/battery/charging_enabled 1
-#
-#service qrngd /system/bin/qrngd -f
-#   class main
-#   user root
-#   group root
-#
-#service qrngp /system/bin/qrngp
-#    class main
-#    user root
-#    group root
-#    oneshot
-#    disabled
-#
-#on property:sys.boot_completed=1
-#    start qrngp
-#
+
 service qseecomd /system/bin/qseecomd
    class core
    user root
    group root
 
-service spdaemon /system/bin/spdaemon
-   class core
-   user system
-   group system
-
-#service mpdecision /system/bin/mpdecision --avg_comp
-#   user root
-#   disabled
-#
-#service qosmgrd /system/bin/qosmgr /system/etc/qosmgr_rules.xml
-#   user system
-#   group system
-#   disabled
-#
 service thermal-engine /system/vendor/bin/thermal-engine -T
    class main
    user root
@@ -245,111 +206,16 @@ service thermal-engine /system/vendor/bin/thermal-engine -T
    socket thermal-recv-passive-client stream 0666 system system
    group root
 
-service tpdbg /system/bin/touch_debug
-   class main
-   user root
-   group root
-   socket tpdbg-socket stream 0666 system system
-
-#service security-check1 /sbin/security_boot_check system
-#    class core
-#    oneshot
-#
-#service security-check2 /sbin/security_boot_check recovery
-#    class core
-#    oneshot
-#
-service time_daemon /system/bin/time_daemon
-   class late_start
-   user root
-   group root
-
 service adsprpcd /system/bin/adsprpcd
    class main
    user media
    group media
-
-service hbtp /system/vendor/bin/hbtp_daemon
-    class main
-    user system
-    group system
-    disabled
 
 service audiod /system/bin/audiod
    class late_start
    user system
    group system
 
-service audio_info /system/bin/audio_info
-   class main
-   user system
-   group system
-   disabled
-   oneshot
-   seclabel u:r:audio_info:s0
-
-
-#service usf_tester /system/bin/usf_tester
-#    user system
-#    group system inet
-#    disabled
-#
-#service usf_epos /system/bin/usf_epos
-#    user system
-#    group system inet
-#    disabled
-#
-#service usf_gesture /system/bin/usf_gesture
-#    user system
-#    group system inet
-#    disabled
-#
-
-#service usf_sync_gesture /system/bin/usf_sync_gesture
-#    user system
-#    group system inet
-#    disabled
-#
-
-#service usf_p2p /system/bin/usf_p2p
-#    user system
-#    group system inet
-#    disabled
-#
-#service usf_hovering /system/bin/usf_hovering
-#    user system
-#    group system inet
-#    disabled
-#
-#service usf_proximity /system/bin/usf_proximity
-#    user system
-#    group system inet
-#    disabled
-#
-#service usf-post-boot /system/bin/sh /system/etc/usf_post_boot.sh
-#    class late_start
-#    user root
-#    disabled
-#    oneshot
-#
-#on property:init.svc.bootanim=stopped
-#    start usf-post-boot
-#
-#
-#on boot
-#    insmod /system/lib/modules/adsprpc.ko
-#    insmod /system/lib/modules/mhi.ko
-## access permission for secure touch
-#    chmod 0660 /sys/devices/f9966000.i2c/i2c-1/1-004a/secure_touch_enable
-#    chmod 0440 /sys/devices/f9966000.i2c/i2c-1/1-004a/secure_touch
-#    chmod 0660 /sys/devices/f9966000.i2c/i2c-1/1-0020/secure_touch_enable
-#    chmod 0440 /sys/devices/f9966000.i2c/i2c-1/1-0020/secure_touch
-#    chown system drmrpc /sys/devices/f9966000.i2c/i2c-1/1-004a/secure_touch_enable
-#    chown system drmrpc /sys/devices/f9966000.i2c/i2c-1/1-004a/secure_touch
-#    chown system drmrpc /sys/devices/f9966000.i2c/i2c-1/1-0020/secure_touch_enable
-#    chown system drmrpc /sys/devices/f9966000.i2c/i2c-1/1-0020/secure_touch
-#
-#
 service imsqmidaemon /system/bin/imsqmidaemon
     class main
     user system
@@ -362,62 +228,9 @@ service imsdatadaemon /system/bin/imsdatadaemon
     socket ims_datad stream 0660 system radio
     group system wifi radio inet log diag
     disabled
-#
-#service mdm_helper /system/bin/mdm_helper
-#    class core
-#    onrestart setprop ro.service.mdm_helper_restarted "true"
-#    disabled
-#
-#service mdm_helper_proxy /system/bin/mdm_helper_proxy
-#    class core
-#    disabled
-#
-#service mdm_launcher /system/bin/sh /init.mdm.sh
-#    class main
-#    oneshot
-#
-#service qcamerasvr /system/bin/mm-qcamera-daemon
-#    class late_start
-#    user camera
-#    group camera system inet input graphics
-#
-# Stop mdm_helper_proxy in case of shutdown
-#on property:sys.shutdown.requested=*
-#    stop mdm_helper_proxy
-#
-# Stop mdm_helper_proxy on APQ target
-#on property:ro.radio.noril=yes
-#    stop mdm_helper_proxy
-#
-#on property:persist.airplane.mode.pwr.svg=enabled
-#    setprop ro.mdm_helper_proxy_req false
-#
-#on property:init.svc.ril-daemon=running
-#    setprop ro.mdm_helper_proxy_req true
-#
-## Start mdm_helper_proxy
-#on property:ro.mdm_helper_proxy_req=true
-#    start mdm_helper_proxy
-#
-## QCA1530 SoC core detect
-#service gnss-detect /system/vendor/bin/gnss.qca1530.sh detect
-#   class core
-#   oneshot
+
 service pd_mapper /system/vendor/bin/pd-mapper
      class core
-
-#
-## QCA1530 SoC late_start group trigger
-#service gnss-init /system/vendor/bin/gnss.qca1530.sh init
-#   class late_start
-#   oneshot
-#
-## QCA1530 SoC Service Daemon
-#service gnss-svcd /system/vendor/bin/gnss.qca1530.sh start
-#   class late_start
-#   user root
-#   group gps system qcom_diag diag log inet net_raw
-#   disabled
 
 on property:sys.ims.QMI_DAEMON_STATUS=1
     start imsdatadaemon
@@ -438,7 +251,6 @@ service imscmservice /system/bin/imscmservice
 on property:sys.ims.DATA_DAEMON_STATUS=1
     start ims_rtp_daemon
     start imscmservice
-#
 
 service ppd /system/vendor/bin/mm-pp-dpps
     class late_start
@@ -446,11 +258,6 @@ service ppd /system/vendor/bin/mm-pp-dpps
     group system graphics
     socket pps stream 0660 system system
     disabled
-
-service qpaydaemon /system/vendor/bin/qpaydaemon
-    class late_start
-    user system
-    group system
 
 on property:init.svc.surfaceflinger=stopped
     stop ppd
@@ -469,31 +276,6 @@ on property:init.svc.zygote=running
 
 on property:init.svc.zygote=restarting
     stop ppd
-
-#
-#service nqs /system/bin/nqs
-#    class late_start
-#    socket nqs_qsb_comm stream 660 system system
-#    user system
-#    group drmrpc
-#
-#service adsprpcd /system/bin/adsprpcd
-#   class main
-#   user media
-#   group media
-#
-##Start picture quality tuning service
-#service vqttoolservice /system/bin/vqttoolservice
-#    class late_start
-#    socket vqtss stream 0660 system system
-#    user system
-#    group system
-
-#service seempd /system/bin/seempd
-#    class late_start
-#    user system
-#    group system
-#    socket seempdw dgram 0666 system system
 
 service energy-awareness /system/bin/energy-awareness
     class main
@@ -507,79 +289,10 @@ service fingerprintd /system/bin/fingerprintd
     user system
     group system sdcard_rw
 
-service displayfeature /system/bin/displayfeature
-    class late_start
-    user root
-    group root
-
-on property:init.svc.surfaceflinger=stopped
-    stop displayfeature
-
-on property:init.svc.surfaceflinger=running
-    start displayfeature
-
-on property:init.svc.surfaceflinger=restarting
-    stop displayfeature
-
-on property:init.svc.zygote=stopped
-    stop displayfeature
-
-on property:init.svc.zygote=running
-    start displayfeature
-
-on property:init.svc.zygote=restarting
-    stop displayfeature
-
-service mdtpd /system/vendor/bin/mdtpd
-    class late_start
-    user root
-    group system radio drmrpc
-
-service mmbn-daemon /system/bin/mmbn-daemon
-    class main
-    disabled
-    oneshot
-service mtservice /system/bin/mtd
-    class late_start
-
-service vsimservice /system/bin/vsimd
-    class late_start
-
-service mlipayservice /system/bin/mlipayd
-    class late_start
-
 service hvdcp_opti /system/bin/hvdcp_opti
      class main
      user root
      group system wakelock
-
-service smonsir /system/bin/smonsir
-    user root
-    group root
-    oneshot
-    disabled
-
-service smprosrv /system/bin/smprosrv
-    user root
-    group root
-    oneshot
-    disabled
-
-service qvrd /system/vendor/bin/qvrservice
-    class late_start
-    user system
-    group system camera graphics
-    socket qvrservice stream 0666 system system
-
-service smcinvoked /system/vendor/bin/smcinvoked
-    class main
-    user system
-    group system
-
-service qdmastatsd /system/bin/qdmastatsd
-    class late_start
-    user system
-    group system
 
 service readmac /system/bin/readmac
     class main
@@ -612,15 +325,3 @@ on charger
 
 on property:slpi.restart=1
     write /sys/kernel/debug/msm_subsys/slpi restart
-
-on property:audio.speaker.id=*
-   start audio_info
-
-on property:persist.audio.spk_time=*
-   start audio_info
-
-on property:persist.audio.rcv_time=*
-   start audio_info
-
-on property:persist.audio.plug_times=*
-   start audio_info

@@ -1,1 +1,0 @@
-allow rfs_access tftp_server_check_file:file create_file_perms;
