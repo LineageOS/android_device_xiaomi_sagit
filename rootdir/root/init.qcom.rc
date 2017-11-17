@@ -609,20 +609,6 @@ service cnss_diag /system/bin/cnss_diag -q -b 128
     group system wifi inet net_admin sdcard_rw media_rw diag
     oneshot
 
-service tcpdump /system/xbin/tcpdump -i any -W 2 -C 2 -s 134 -w /sdcard/MIUI/debug_log/common/tcpdump.pcap
-    class main
-    user root
-    group root
-    disabled
-    oneshot
-
-service sniffer /system/xbin/tcpdump -i wlan0 -w /sdcard/wlan_logs/sniffer.pcap
-    class main
-    user root
-    group root
-    disabled
-    oneshot
-
 service cnss-daemon /system/bin/cnss-daemon -n -l
     class late_start
     user system
@@ -654,10 +640,6 @@ service qcom-post-boot /system/bin/sh /system/etc/init.qcom.post_boot.sh
 
 on property:sys.boot_completed=1
     start qcom-post-boot
-
-on property:sys.miui.user_authenticated=true
-    start cnss_diag
-    start tcpdump
 
 service hostapd /system/bin/hostapd -dd /data/hostapd/hostapd.conf
     class late_start
