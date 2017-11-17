@@ -985,6 +985,7 @@ vendor/lib/sensor_calibrate.so
 vendor/lib/sensors.ssc.so
 
 # Thermal
+bin/msm_irqbalance
 etc/thermal-engine.conf
 etc/thermal-engine-8998.conf
 etc/thermal-engine-8998-high.conf
