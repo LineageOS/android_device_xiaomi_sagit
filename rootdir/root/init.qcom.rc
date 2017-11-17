@@ -1131,7 +1131,6 @@ service msm_irqbalance /system/bin/msm_irqbalance -f /system/vendor/etc/msm_irqb
     class core
     user root
     group root
-    disabled
 
 service wfdservice /system/bin/wfdservice
     class main
