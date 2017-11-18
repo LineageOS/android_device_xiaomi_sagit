@@ -391,7 +391,6 @@ vendor/lib/libmmcamera_isp_snr47.so
 vendor/lib/libmmcamera_isp_sub_module.so
 
 # Camera OIS
-vendor/lib/libois_lc898122.so
 vendor/lib/libois_bu63164.so
 
 # Camera sensors
