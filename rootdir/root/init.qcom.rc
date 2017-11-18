@@ -555,12 +555,6 @@ service netmgrd /system/bin/netmgrd
     class main
     group radio system wakelock
 
-service ipacm-diag /system/bin/ipacm-diag
-    class main
-    user system
-    socket ipacm_log_file dgram 660 system net_admin
-    group net_admin qcom_diag
-
 service ipacm /system/bin/ipacm
     class main
     user net_admin

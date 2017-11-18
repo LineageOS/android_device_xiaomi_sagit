@@ -637,7 +637,6 @@ vendor/lib64/librcc.so
 vendor/lib64/libvoice-svc.so
 
 # IPA
-bin/ipacm-diag
 etc/firmware/ipa_fws.b00
 etc/firmware/ipa_fws.b01
 etc/firmware/ipa_fws.b02
