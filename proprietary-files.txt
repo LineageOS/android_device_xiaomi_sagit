@@ -79,7 +79,6 @@ vendor/lib/libqtigef.so
 
 # Bluetooth
 bin/btnvtool
-bin/hci_qcomm_init
 bin/wcnss_filter
 vendor/lib64/libbtnv.so
 vendor/lib/libbtnv.so
