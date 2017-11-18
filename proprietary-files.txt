@@ -446,9 +446,17 @@ vendor/lib/libxml.so
 # Consumerir
 lib64/hw/consumerir.default.so
 
-# Display calibration data
+# Display calibration
+-vendor/app/colorservice/colorservice.apk
+-vendor/lib64/libsdm-disp-apis.so
+etc/permissions/com.qti.snapdragon.sdk.display.xml
 etc/qdcm_calib_data_jdi_fhd_cmd_incell_dsi_panel.xml
 etc/qdcm_calib_data_lgd_fhd_cmd_incell_dsi_panel.xml
+framework/com.qti.snapdragon.sdk.display.jar
+vendor/lib64/libsd_sdk_display.so
+vendor/lib64/libsdm-color.so
+vendor/lib64/libsdm-diag.so
+vendor/lib64/libsdmextension.so
 
 # DPM
 bin/dpmd
@@ -563,16 +571,9 @@ vendor/lib64/libgsl.so
 vendor/lib64/libllvm-glnext.so
 vendor/lib64/libllvm-qcom.so
 vendor/lib64/libllvm-qgl.so
-vendor/lib64/libmm-disp-apis.so
-vendor/lib64/libmm-qdcm.so
 vendor/lib64/libqseed3.so
 vendor/lib64/librs_adreno.so
 vendor/lib64/librs_adreno_sha1.so
-vendor/lib64/libsd_sdk_display.so
-vendor/lib64/libsdm-color.so
-vendor/lib64/libsdm-diag.so
--vendor/lib64/libsdm-disp-apis.so
-vendor/lib64/libsdmextension.so
 vendor/lib64/libtinyxml2_1.so
 vendor/lib/egl/eglSubDriverAndroid.so
 vendor/lib/egl/libEGL_adreno.so
@@ -593,13 +594,9 @@ vendor/lib/libgsl.so
 vendor/lib/libllvm-glnext.so
 vendor/lib/libllvm-qcom.so
 vendor/lib/libllvm-qgl.so
-vendor/lib/libmm-disp-apis.so
-vendor/lib/libmm-qdcm.so
 vendor/lib/libqseed3.so
 vendor/lib/librs_adreno.so
 vendor/lib/librs_adreno_sha1.so
-vendor/lib/libsd_sdk_display.so
--vendor/lib/libsdm-disp-apis.so
 vendor/lib/libtinyxml2_1.so
 
 # Graphics firmware
@@ -726,13 +723,6 @@ bin/pm-proxy
 bin/pm-service
 vendor/lib64/libperipheral_client.so
 vendor/lib/libperipheral_client.so
-
-# Postprocessing
-etc/permissions/com.qti.snapdragon.sdk.display.xml
-framework/com.qti.snapdragon.sdk.display.jar
--vendor/app/colorservice/colorservice.apk
-vendor/bin/mm-pp-dpps
-vendor/lib64/libdisp-aba.so
 
 # QMI
 bin/irsc_util
