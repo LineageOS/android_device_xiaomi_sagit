@@ -851,5 +851,4 @@ vendor/lib64/libqvop-service.so
 vendor/lib/libqvop-service.so
 
 # WiFi
-bin/cnss_diag
 bin/cnss-daemon
