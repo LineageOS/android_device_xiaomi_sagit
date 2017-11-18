@@ -739,14 +739,8 @@ vendor/lib/libsd_sdk_display.so
 vendor/lib/libtinyxml2_1.so
 
 # Graphics firmware
-etc/firmware/a530_gpmu.fw2
 etc/firmware/a530_pfp.fw
 etc/firmware/a530_pm4.fw
-etc/firmware/a530v1_pfp.fw
-etc/firmware/a530v1_pm4.fw
-etc/firmware/a530v2_seq.fw2
-etc/firmware/a530v3_gpmu.fw2
-etc/firmware/a530v3_seq.fw2
 etc/firmware/a540_gpmu.fw2
 etc/firmware/a540_zap.b00
 etc/firmware/a540_zap.b01
