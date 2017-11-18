@@ -72,10 +72,12 @@ ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
 # Display
 debug.gralloc.enable_fb_ubwc=1
+debug.gralloc.gfx_ubwc_disable=0
 debug.sf.hw=1
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
 persist.hwc.enable_vds=1
+persist.sys.force_sw_gles=0
 ro.hwui.drop_shadow_cache_size=6
 ro.hwui.gradient_cache_size=1
 ro.hwui.layer_cache_size=48

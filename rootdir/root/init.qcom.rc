@@ -66,7 +66,27 @@ on early-boot
     write /sys/kernel/boot_adsp/boot 1
     write /sys/kernel/boot_cdsp/boot 1
     write /sys/kernel/boot_slpi/boot 1
-    exec u:r:qti_init_shell:s0 -- /init.qcom.early_boot.sh
+
+    chown system graphics /sys/class/graphics/fb0/idle_time
+    chown system graphics /sys/class/graphics/fb0/dyn_pu
+    chown system graphics /sys/class/graphics/fb0/modes
+    chown system graphics /sys/class/graphics/fb0/mode
+    chown system graphics /sys/class/graphics/fb0/msm_cmd_autorefresh_en
+    chmod 0664 /sys/class/graphics/fb0/idle_time
+    chmod 0664 /sys/class/graphics/fb0/dyn_pu
+    chmod 0664 /sys/class/graphics/fb0/modes
+    chmod 0664 /sys/class/graphics/fb0/mode
+    chmod 0664 /sys/class/graphics/fb0/msm_cmd_autorefresh_en
+
+    chown system graphics /sys/class/graphics/fb0/msm_fb_persist_mode
+    chown system graphics /sys/class/graphics/fb0/lineptr_value
+    chmod 0664 /sys/class/graphics/fb0/msm_fb_persist_mode
+    chmod 0664 /sys/class/graphics/fb0/lineptr_value
+
+    chown system graphics /sys/class/graphics/fb1/msm_fb_persist_mode
+    chown system graphics /sys/class/graphics/fb1/lineptr_value
+    chmod 0664 /sys/class/graphics/fb1/msm_fb_persist_mode
+    chmod 0664 /sys/class/graphics/fb1/lineptr_value
 
     # SSR setup
     write /sys/bus/msm_subsys/devices/subsys0/restart_level "related"
