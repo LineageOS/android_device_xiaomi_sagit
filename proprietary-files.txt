@@ -176,8 +176,6 @@ vendor/lib/libmmjpeg.so
 vendor/lib/libmmqjpeg_codec.so
 vendor/lib/libmmqjpegdma.so
 vendor/lib/libmpbase.so
-vendor/lib/libois_lc898122.so
-vendor/lib/libois_bu63164.so
 vendor/lib/libmorpho_easy_hdr.so
 vendor/lib/libmorpho_hdr_checker.so
 vendor/lib/libmorpho_group_portrait.so
@@ -490,6 +488,10 @@ etc/firmware/cpp_firmware_v1_5_0.fw
 etc/firmware/cpp_firmware_v1_5_2.fw
 etc/firmware/cpp_firmware_v1_6_0.fw
 etc/firmware/cpp_firmware_v1_8_0.fw
+
+# Camera OIS
+vendor/lib/libois_lc898122.so
+vendor/lib/libois_bu63164.so
 
 # Camera sensors
 vendor/lib/libmmcamera_isp_aec_bg_stats47.so
