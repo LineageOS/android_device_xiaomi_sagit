@@ -61,11 +61,14 @@ on fs
 
     mkdir /persist/data 0700 system system
     mkdir /persist/wlan_bt 0700 system system
-    mkdir /persist/audio 0700 system system
+    mkdir /persist/audio 0755 system system
     mkdir /persist/bms 0700 root system
+    mkdir /persist/subsys 0700 system system
     restorecon_recursive /persist
 
     chmod 644 /persist/audio/us_manual_cal
+    chown system system /dev/tiload_node
+    chmod 660 /dev/tiload_node
 
 on post-fs
     start qseecomd
@@ -86,9 +89,10 @@ on post-fs-data
     mkdir /data/misc/seemp 0700 system system
     mkdir /data/nfc 0770 nfc nfc
     mkdir /data/fpc 0770 system system
-    mkdir /data/fpc/s 0771 system system
+    mkdir /data/misc/fpc 0770 system system
     mkdir /persist/fpc 0770 system system
     mkdir /data/thermal 0771 system system
+    mkdir /data/thermal/config 0771 system system
     mkdir /data/misc/touch 0771 system system
     chown system system /dev/sysmatdrv
     chmod 0660 /dev/sysmatdrv
