@@ -49,8 +49,6 @@ on init
     # Goodix fingerprint
     chown system system /dev/goodix_fp
 
-    write /proc/touchpanel/reversed_keys 1
-
 on fs
     wait /dev/block/platform/soc/1da4000.ufshc
     symlink /dev/block/platform/soc/1da4000.ufshc /dev/block/bootdevice
