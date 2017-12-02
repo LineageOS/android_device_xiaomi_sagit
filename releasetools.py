@@ -19,12 +19,10 @@ import re
 
 def FullOTA_Assertions(info):
   AddTrustZoneAssertion(info, info.input_zip)
-  AddFileEncryptionAssertion(info)
   return
 
 def IncrementalOTA_Assertions(info):
   AddTrustZoneAssertion(info, info.target_zip)
-  AddFileEncryptionAssertion(info)
   return
 
 def AddTrustZoneAssertion(info, input_zip):
@@ -36,25 +34,3 @@ def AddTrustZoneAssertion(info, input_zip):
       cmd = 'assert(sagit.verify_trustzone(' + ','.join(['"%s"' % tz for tz in versions]) + ') == "1");'
       info.script.AppendExtra(cmd)
   return
-
-def AddFileEncryptionAssertion(info):
-  info.script.AppendExtra('package_extract_file("install/bin/fbe_check.sh", "/tmp/fbe_check.sh");');
-  info.script.AppendExtra('set_metadata("/tmp/fbe_check.sh", "uid", 0, "gid", 0, "mode", 0755);');
-  info.script.AppendExtra('if !is_mounted("/data") then');
-  info.script.Mount("/data");
-  info.script.AppendExtra('endif;');
-  info.script.AppendExtra('if run_program("/tmp/fbe_check.sh") != 0 then');
-  info.script.AppendExtra('ui_print("===========================================");');
-  info.script.AppendExtra('ui_print("|              !!! ERROR !!!               ");');
-  info.script.AppendExtra('ui_print("|                                          ");');
-  info.script.AppendExtra('ui_print("| File-based Encryption is required.       ");');
-  info.script.AppendExtra('ui_print("|                                          ");');
-  info.script.AppendExtra('ui_print("| Backup your data (including internal     ");');
-  info.script.AppendExtra('ui_print("| storage) and format the data partition.  ");');
-  info.script.AppendExtra('ui_print("|                                          ");');
-  info.script.AppendExtra('ui_print("| Chinese: http://t.cn/R92kLm3             ");');
-  info.script.AppendExtra('ui_print("| English: https://t.co/7jDlsf2y6v         ");');
-  info.script.AppendExtra('ui_print("===========================================");');
-  info.script.AppendExtra('abort("FBE check failed.");');
-  info.script.AppendExtra('endif;');
-  info.script.Unmount("/data");
