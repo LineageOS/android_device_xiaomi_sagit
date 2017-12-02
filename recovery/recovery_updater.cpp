@@ -163,13 +163,14 @@ Value * VerifyTrustZoneFn(const char *name, State *state, int argc, Expr *argv[]
 
     ret = get_tz_version(current_tz_version, TZ_VER_BUF_LEN);
     if (ret) {
-        return ErrorAbort(state, "%s() failed to read current TZ version: %d",
-                name, ret);
+        return ErrorAbort(state, kVendorFailure,
+                "%s() failed to read current TZ version: %d", name, ret);
     }
 
     char** tz_version = ReadVarArgs(state, argc, argv);
     if (tz_version == NULL) {
-        return ErrorAbort(state, "%s() error parsing arguments", name);
+        return ErrorAbort(state, kArgsParsingFailure,
+                "%s() error parsing arguments", name);
     }
 
     ret = 0;
