@@ -51,6 +51,7 @@ lib/soundfx/libdirac.so
 vendor/lib64/soundfx/libqcbassboost.so
 vendor/lib64/soundfx/libqcreverb.so
 vendor/lib64/soundfx/libqcvirt.so
+vendor/lib64/soundfx/libshoebox.so
 vendor/lib64/libacdb-fts.so
 vendor/lib64/libacdbloader.so
 vendor/lib64/libacdbrtac.so
@@ -60,6 +61,7 @@ vendor/lib64/libhwdaphal.so
 vendor/lib/soundfx/libqcbassboost.so
 vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
+vendor/lib/soundfx/libshoebox.so
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
@@ -76,6 +78,7 @@ vendor/lib64/libbtnv.so
 vendor/lib/libbtnv.so
 
 # Camera
+lib/vendor.qti.hardware.camera.device@1.0.so
 bin/mm-qcamera-daemon
 vendor/lib/hw/camera.msm8998.so
 lib/libMiCameraHal.so
@@ -168,6 +171,7 @@ vendor/lib/libseemore.so
 vendor/lib/libStereoRectification.so
 lib/libtrueportrait.so
 vendor/lib/libubifocus.so
+vendor/lib/vendor.qti.hardware.camera.device@1.0_vendor.so
 
 # Camera actuator
 vendor/lib/libactuator_ak7371_s5k3m3_semco.so
@@ -395,6 +399,11 @@ etc/permissions/com.quicinc.cne.xml
 framework/cneapiclient.jar
 framework/com.quicinc.cne.jar
 -priv-app/CNEService/CNEService.apk
+vendor/lib64/com.quicinc.cne.api@1.0.so
+vendor/lib64/com.quicinc.cne.constants@1.0.so
+vendor/lib64/com.quicinc.cne.constants@2.0.so
+vendor/lib64/com.quicinc.cne.server@1.0.so
+vendor/lib64/com.quicinc.cne.server@2.0.so
 vendor/lib64/libcneapiclient.so
 vendor/lib64/libcneqmiutils.so
 vendor/lib64/libcne.so
@@ -402,6 +411,11 @@ lib64/libvendorconn.so
 vendor/lib64/libwms.so
 vendor/lib64/libwqe.so
 vendor/lib64/libxml.so
+vendor/lib/com.quicinc.cne.api@1.0.so
+vendor/lib/com.quicinc.cne.constants@1.0.so
+vendor/lib/com.quicinc.cne.constants@2.0.so
+vendor/lib/com.quicinc.cne.server@1.0.so
+vendor/lib/com.quicinc.cne.server@2.0.so
 vendor/lib/libcneapiclient.so
 vendor/lib/libcneqmiutils.so
 vendor/lib/libcne.so
@@ -447,6 +461,7 @@ vendor/lib64/hw/gatekeeper.msm8998.so
 vendor/lib/hw/gatekeeper.msm8998.so
 
 # GPS
+vendor/bin/hw/vendor.qti.gnss@1.0-service
 vendor/bin/loc_launcher
 vendor/bin/lowi-server
 vendor/bin/xtwifi-client
@@ -454,13 +469,16 @@ vendor/bin/xtwifi-inet-agent
 etc/permissions/com.qti.location.sdk.xml
 etc/permissions/com.qualcomm.location.xml
 etc/permissions/izat.xt.srv.xml
+lib64/vendor.qti.gnss@1.0.so
 vendor/etc/cacert_location.pem
+vendor/etc/init/vendor.qti.gnss@1.0-service.rc
 vendor/etc/xtra_root_cert.pem
 framework/com.qti.location.sdk.jar
 framework/izat.xt.srv.jar
 -vendor/lib64/libloc_api_v02.so
 vendor/lib64/libloc_ds_api.so
 -priv-app/com.qualcomm.location/com.qualcomm.location.apk
+vendor/lib64/hw/vendor.qti.gnss@1.0-impl.so
 vendor/lib64/libalarmservice_jni.so
 vendor/lib64/libdataitems.so
 vendor/lib64/libdrplugin_client.so
@@ -481,8 +499,17 @@ vendor/lib64/libulp2.so
 lib64/libxt_native.so
 vendor/lib64/libxtadapter.so
 vendor/lib64/libxtwifi_ulp_adaptor.so
+vendor/lib64/vendor.qti.gnss@1.0_vendor.so
 
 # Graphics
+lib/vendor.display.color@1.0.so
+lib/vendor.display.config@1.0.so
+lib/vendor.display.postproc@1.0.so
+lib64/vendor.display.color@1.0.so
+lib64/vendor.display.config@1.0.so
+lib64/vendor.display.postproc@1.0.so
+vendor/bin/hw/vendor.display.color@1.0-service
+vendor/etc/init/vendor.display.color@1.0-service.rc
 vendor/lib64/egl/eglSubDriverAndroid.so
 vendor/lib64/egl/libEGL_adreno.so
 vendor/lib64/egl/libGLESv1_CM_adreno.so
@@ -507,6 +534,9 @@ vendor/lib64/libqseed3.so
 vendor/lib64/librs_adreno.so
 vendor/lib64/librs_adreno_sha1.so
 vendor/lib64/libtinyxml2_1.so
+vendor/lib64/vendor.display.color@1.0_vendor.so
+vendor/lib64/vendor.display.config@1.0_vendor.so
+vendor/lib64/vendor.display.postproc@1.0_vendor.so
 vendor/lib/egl/eglSubDriverAndroid.so
 vendor/lib/egl/libEGL_adreno.so
 vendor/lib/egl/libGLESv1_CM_adreno.so
@@ -530,6 +560,9 @@ vendor/lib/libqseed3.so
 vendor/lib/librs_adreno.so
 vendor/lib/librs_adreno_sha1.so
 vendor/lib/libtinyxml2_1.so
+vendor/lib/vendor.display.color@1.0_vendor.so
+vendor/lib/vendor.display.config@1.0_vendor.so
+vendor/lib/vendor.display.postproc@1.0_vendor.so
 
 # Graphics firmware
 vendor/firmware/a530_pfp.fw
@@ -545,15 +578,21 @@ vendor/firmware/a540_zap.mdt
 vendor/bin/ims_rtp_daemon
 vendor/bin/imsdatadaemon
 vendor/bin/imsqmidaemon
+vendor/bin/imsrcsd
 etc/permissions/qti-vzw-ims-internal.xml
+lib64/com.qualcomm.qti.imscmservice@1.0.so
 vendor/framework/qti-vzw-ims-internal.jar
 -app/ims/ims.apk
 -app/imssettings/imssettings.apk
 vendor/lib64/lib-dplmedia.so
 lib64/lib-imscamera.so
+lib64/vendor.qti.imsrtpservice@1.0.so
 vendor/lib64/lib-imsdpl.so
 vendor/lib64/lib-imsqimf.so
 lib64/lib-imsvt.so
+vendor/lib64/com.qualcomm.qti.imscmservice@1.0_vendor.so
+vendor/lib64/lib-imscmservice.so
+vendor/lib64/lib-imsrcs-v2.so
 vendor/lib64/lib-imsxml.so
 vendor/lib64/lib-rcsimssjni.so
 vendor/lib64/lib-rcsjni.so
@@ -564,6 +603,8 @@ vendor/lib64/lib-rtpsl.so
 lib64/libimscamera_jni.so
 lib64/libimsmedia_jni.so
 lib64/librcc.so
+vendor/lib64/vendor.qti.imsrtpservice@1.0-service-Impl.so
+vendor/lib64/vendor.qti.imsrtpservice@1.0_vendor.so
 
 # IPA
 vendor/firmware/ipa_fws.b00
@@ -583,6 +624,8 @@ vendor/lib/hw/sound_trigger.primary.msm8998.so
 vendor/lib/libsmwrapper.so
 
 # Media
+lib/vendor.qti.hardware.vpp@1.1.so
+lib64/vendor.qti.hardware.vpp@1.1.so
 -vendor/lib/libgpustats.so
 -vendor/lib64/libgpustats.so
 vendor/lib64/libOmxVpp.so
@@ -596,6 +639,8 @@ vendor/lib/libOmxEvrcDec.so
 vendor/lib/libOmxQcelp13Dec.so
 vendor/lib/libvpphvx.so
 vendor/lib/libvqzip.so
+vendor/lib/vendor.qti.hardware.vpp@1.1_vendor.so
+vendor/lib64/vendor.qti.hardware.vpp@1.1_vendor.so
 
 # Network
 vendor/lib64/libcsm_data.so
@@ -605,7 +650,15 @@ vendor/lib/libcsm_data.so
 vendor/firmware/libpn553_fw.so
 
 # Perf
+lib/libqti_performance.so
+lib/libqti-perfd-client_system.so
+lib/vendor.qti.hardware.perf@1.0.so
+lib64/libqti_performance.so
+lib64/libqti-perfd-client_system.so
+lib64/vendor.qti.hardware.perf@1.0.so
 vendor/bin/energy-awareness
+vendor/bin/hw/vendor.qti.hardware.perf@1.0-service
+vendor/etc/init/vendor.qti.hardware.perf@1.0-service.rc
 vendor/etc/perf/perf-profile0.conf
 vendor/etc/perf/perf-profile1.conf
 vendor/etc/perf/perf-profile2.conf
@@ -613,10 +666,18 @@ vendor/etc/perf/perf-profile3.conf
 vendor/etc/perf/perf-profile4.conf
 vendor/etc/perf/perf-profile5.conf
 vendor/etc/perf/perf-profile6.conf
+vendor/etc/perf/perfboostsconfig.xml
+vendor/etc/powerhint.xml
+vendor/lib64/libperfgluelayer.so
+vendor/lib64/libqti-perfd.so
 vendor/lib64/libqti-perfd-client.so
+vendor/lib64/vendor.qti.hardware.perf@1.0_vendor.so
 vendor/lib64/libqti-util.so
 vendor/lib64/libqti-utils.so
+vendor/lib/libperfgluelayer.so
+vendor/lib/libqti-perfd.so
 vendor/lib/libqti-perfd-client.so
+vendor/lib/vendor.qti.hardware.perf@1.0_vendor.so
 vendor/lib/libqti-util.so
 vendor/lib/libqti-utils.so
 
@@ -696,6 +757,15 @@ vendor/lib64/libsettings.so
 vendor/lib64/libsystem_health_mon.so
 vendor/lib/libmdmdetect.so
 vendor/radio/qcril_database/qcril.db
+vendor/lib64/vendor.qti.hardware.radio.am@1.0_vendor.so
+vendor/lib64/vendor.qti.hardware.radio.atcmdfwd@1.0_vendor.so
+vendor/lib64/vendor.qti.hardware.radio.ims@1.0_vendor.so
+vendor/lib64/vendor.qti.hardware.radio.lpa@1.0_vendor.so
+vendor/lib64/vendor.qti.hardware.radio.qcrilhook@1.0_vendor.so
+vendor/lib64/vendor.qti.hardware.radio.qtiradio@1.0_vendor.so
+vendor/lib64/vendor.qti.hardware.radio.uim@1.0_vendor.so
+vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.0_vendor.so
+vendor/lib64/vendor.qti.hardware.radio.uim_remote_server@1.0_vendor.so
 
 # Sensors
 vendor/bin/sensors.qcom
