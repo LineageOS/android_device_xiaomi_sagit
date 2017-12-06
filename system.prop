@@ -1,51 +1,56 @@
 # Audio
-af.fast_track_multiplier=1
 audio.adm.buffering.ms=3
 audio.deep_buffer.media=true
-audio.dolby.ds2.enabled=false
-audio.dolby.ds2.hardbypass=false
-audio.heap.size.multiplier=7
-audio.noisy.broadcast.delay=300
-audio.offload.buffer.size.kb=32
-audio.offload.gapless.enabled=true
-audio.offload.multiaac.enable=true
-audio.offload.multiple.enabled=true
-audio.offload.passthrough=false
-audio.offload.pcm.16bit.enable=true
-audio.offload.pcm.24bit.enable=true
-audio.offload.pstimeout.secs=3
-audio.offload.track.enable=false
+audio.offload.min.duration.secs=15
 audio.offload.video=true
-audio.parser.ip.buffer.size=0
-audio.safx.pbe.enabled=true
-audio_hal.period_size=192
-flac.sw.decoder.24bit.support=true
-fm.a2dp.conc.disabled=true
 persist.audio.dirac.speaker=true
-persist.audio.fluence.speaker=true
-persist.audio.fluence.voicecall=true
-persist.audio.fluence.voicerec=false
-persist.audio.ras.enabled=false
 persist.audio.speaker.dualmode=true
-persist.bt.a2dp_offload_cap=sbc-aptx-aptxhd
 persist.sys.button_jack_profile=volume
 persist.sys.button_jack_switch=0
+persist.vendor.audio.fluence.speaker=true
+persist.vendor.audio.fluence.voicecall=true
+persist.vendor.audio.fluence.voicerec=false
+persist.vendor.audio.ras.enabled=false
+persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxhd-aac
+persist.vendor.dpm.feature=1
+persist.vendor.dpm.nsrm.bkg.evt=3955
+persist.vendor.overlay.izat.optin=rro
+persist.vendor.radio.custom_ecc=1
+persist.vendor.radio.force_on_dc=true
+persist.vendor.radio.rat_on=combine
+persist.vendor.radio.rat_on=combine
+persist.vendor.radio.sib16_support=1
 qcom.hw.aac.encoder=true
 ro.audio.nojack=true
 ro.config.vc_call_vol_steps=11
-ro.qc.sdk.audio.fluencetype=fluence
-ro.qc.sdk.audio.ssr=false
-tunnel.audio.encode=false
-use.qti.sw.alac.decoder=true
-use.qti.sw.ape.decoder=true
-use.voice.path.for.pcm.voip=true
+ro.vendor.audio.sdk.fluencetype=fluence
+ro.vendor.audio.sdk.ssr=false
+vendor.audio.dolby.ds2.enabled=false
+vendor.audio.dolby.ds2.hardbypass=false
+vendor.audio.flac.sw.decoder.24bit=true
+vendor.audio.hw.aac.encoder=false
+vendor.audio.noisy.broadcast.delay=600
+vendor.audio.offload.buffer.size.kb=32
+vendor.audio.offload.gapless.enabled=true
+vendor.audio.offload.multiaac.enable=true
+vendor.audio.offload.multiple.enabled=true
+vendor.audio.offload.passthrough=false
+vendor.audio.offload.pstimeout.secs=3
+vendor.audio.offload.track.enable=false
+vendor.audio.parser.ip.buffer.size=0
+vendor.audio.safx.pbe.enabled=true
+vendor.audio.tunnel.encode=false
+vendor.audio.use.sw.alac.decoder=true
+vendor.audio.use.sw.ape.decoder=true
+vendor.audio_hal.period_size=192
+vendor.fm.a2dp.conc.disabled=true
+vendor.voice.path.for.pcm.voip=false
 
 # Battery
 ro.cutoff_voltage_mv=3400
 
 # Bluetooth
 bt.max.hfpclient.connections=1
-persist.bt.a2dp.aac_disable=true
 qcom.bluetooth.soc=cherokee
 ro.bluetooth.a4wp=false
 ro.bluetooth.dun=true
@@ -73,11 +78,12 @@ ro.frp.pst=/dev/block/bootdevice/by-name/frp
 # Display
 debug.gralloc.enable_fb_ubwc=1
 debug.gralloc.gfx_ubwc_disable=0
+debug.sf.enable_hwc_vds=1
 debug.sf.hw=1
+debug.sf.latch_unsignaled=1
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
 persist.hwc.enable_vds=1
-persist.sys.force_sw_gles=0
 ro.hwui.drop_shadow_cache_size=7
 ro.hwui.gradient_cache_size=1
 ro.hwui.layer_cache_size=64
@@ -91,10 +97,10 @@ ro.hwui.texture_cache_flushrate=0.4
 ro.hwui.texture_cache_size=96
 ro.opengles.version=196610
 ro.sf.lcd_density=480
-sdm.debug.disable_partial_split=1
+vendor.display.enable_default_color_mode=1
 
 # DPM
-persist.dpm.feature=0
+persist.vendor.dpm.feature=0
 
 # Radio
 persist.data.df.agg.dl_pkt=10
@@ -108,27 +114,30 @@ persist.data.mode=concurrent
 persist.data.netmgrd.qos.enable=true
 persist.data.wda.enable=true
 persist.radio.apm_sim_not_pwdn=1
-persist.radio.custom_ecc=1
 persist.radio.dynamic_sar=false
-persist.radio.force_on_dc=true
 persist.radio.multisim.config=dsds
 persist.radio.NO_STAPA=1
-persist.radio.rat_on=combine
-persist.radio.sib16_support=1
-persist.radio.VT_CAM_INTERFACE=2
+persist.radio.redir_party_num=1
+persist.radio.report_codec=1
 persist.radio.VT_HYBRID_ENABLE=1
 persist.rmnet.data.enable=true
 persist.sys.strictmode.disable=true
 persist.timed.enable=true
+persist.vendor.radio.custom_ecc=1
+persist.vendor.radio.force_on_dc=true
+persist.vendor.radio.rat_on=combine
+persist.vendor.radio.rat_on=combine
+persist.vendor.radio.sib16_support=1
 ril.subscription.types=RUIM
 rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so
+ro.telephony.default_cdma_sub=0
 ro.telephony.default_network=22,22
 ro.use_data_netmgrd=true
 telephony.lteOnCdmaDevice=1
 
 # Media
-camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,com.miui.cit,org.cyanogenmod.snap
 media.aac_51_output_enabled=true
+media.settings.xml=/vendor/etc/media_profiles_vendor.xml
 media.stagefright.enable-aac=true
 media.stagefright.enable-http=true
 media.stagefright.enable-player=true
@@ -136,7 +145,12 @@ media.stagefright.enable-qcp=true
 media.stagefright.enable-scan=true
 mm.enable.smoothstreaming=true
 mmp.enable.3g2=true
+persist.camera.set.afd=4
+persist.camera.xm.green.b=0.96
+persist.camera.xm.green.r=0.97
 persist.mm.enable.prefetch=true
+persist.vendor.qti.telephony.vt_cam_interface=1
+vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,com.miui.cit,org.cyanogenmod.snap
 vidc.enc.dcvs.extra-buff-count=2
 
 # Memory
@@ -149,15 +163,16 @@ dalvik.vm.heaptargetutilization=0.75
 
 # NFC
 persist.nfc.smartcard.config=SIM1,eSE1
+ro.hardware.nfc_nci=nqx.default
 ro.nfc.port=I2C
-ro.se.type=eSE,HCE
+ro.se.type=eSE,HCE,UICC
 
 # Perf
 persist.sys.perf.debug=true
-ro.core_ctl_max_cpu=4
-ro.core_ctl_min_cpu=2
-ro.sys.fw.bg_apps_limit=60
 ro.vendor.extension_library=libqti-perfd-client.so
+ro.vendor.qti.core_ctl_max_cpu=4
+ro.vendor.qti.core_ctl_min_cpu=2
+ro.vendor.qti.sys.fw.bg_apps_limit=60
 
 # Sdcardfs
 ro.sys.sdcardfs=1
@@ -166,14 +181,17 @@ ro.sys.sdcardfs=1
 persist.sys.sensors.cfos=false
 persist.sys.sensors.pug=false
 persist.sys.sensors.spg=false
-ro.qti.sensors.dev_ori=false
-ro.qti.sensors.dpc=true
-ro.qti.sensors.iod=true
-ro.qti.sensors.mot_detect=true
-ro.qti.sensors.multishake=true
-ro.qti.sensors.pmd=true
-ro.qti.sensors.sta_detect=true
 ro.qti.sensors.taptap_gesture=true
+ro.vendor.sdk.sensors.gestures=false
+ro.vendor.sensors.cmc=false
+ro.vendor.sensors.dev_ori=false
+ro.vendor.sensors.dpc=true
+ro.vendor.sensors.facing=false
+ro.vendor.sensors.iod=false
+ro.vendor.sensors.mot_detect=true
+ro.vendor.sensors.multishake=true
+ro.vendor.sensors.pmd=false
+ro.vendor.sensors.sta_detect=true
 
 # WFD
 persist.debug.wfd.enable=1
