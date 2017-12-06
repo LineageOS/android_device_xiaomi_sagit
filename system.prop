@@ -94,8 +94,7 @@ ro.sf.lcd_density=480
 sdm.debug.disable_partial_split=1
 
 # DPM
-persist.dpm.feature=1
-persist.dpm.nsrm.bkg.evt=3955
+persist.dpm.feature=0
 
 # Radio
 persist.data.df.agg.dl_pkt=10
