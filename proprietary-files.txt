@@ -739,6 +739,7 @@ etc/permissions/embms.xml
 etc/permissions/qcrilhook.xml
 framework/embmslibrary.jar
 vendor/bin/netmgrd
+vendor/bin/port-bridge
 vendor/bin/qti
 vendor/bin/rmt_storage
 vendor/bin/tftp_server
