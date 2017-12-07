@@ -33,6 +33,8 @@
         <param max_ape_sessions="8" />
         <param enable_failure_detection="false" />
         <param support_device_switch="false" />
+        <!-- Transition will only occur if execution_type="DYNAMIC" -->
+        <param transit_to_adsp_on_playback="false" />
         <!-- Below backend params must match with port used in mixer path file -->
         <!-- param used to configure backend sample rate, format and channels -->
         <param backend_port_name="SLIM_0_TX" />
@@ -43,9 +45,11 @@
         <param DEVICE_HANDSET_MIC_APE="100" />
         <param DEVICE_HANDSET_MIC_CPE="128" />
         <param DEVICE_HANDSET_MIC_ECPP_CPE="128" />
+        <param DEVICE_HANDSET_TMIC_CPE="130" />
         <param DEVICE_HANDSET_MIC_PP_APE="135" />
         <param DEVICE_HANDSET_QMIC_APE="137" />
         <param DEVICE_HEADSET_MIC_CPE="139" />
+        <param DEVICE_HANDSET_DMIC_APE="149" />
     </acdb_ids>
     <!-- Multiple sound_model_config tags can be listed, each with unique   -->
     <!-- vendor_uuid. The below tag represents QTI SVA engine sound model   -->
@@ -66,9 +70,12 @@
         <!-- adm_cfg_profile should match with the one defined under adm_config -->
         <!-- Set it to NONE if LSM directly connects to AFE -->
         <param adm_cfg_profile="NONE" />
-        <!-- fluence_type: "FLUENCE", FLUENCE_DMIC", FLUENCE_QMIC" -->
-        <!-- param value is valid when adm_cfg_profile="FLUENCE" -->
+        <!-- fluence_type: "FLUENCE", "FLUENCE_DMIC", "FLUENCE_TMIC", -->
+        <!-- "FLUENCE_QMIC". param value is valid when adm_cfg_profile="FLUENCE"-->
         <param fluence_type="FLUENCE_QMIC" />
+        <!-- wdsp_fluence_type: fluence disabled: "NONE" -->
+        <!-- fluence enabled: "FLUENCE_DMIC", "FLUENCE_TMIC", "FLUENCE_QMIC" -->
+        <param wdsp_fluence_type="NONE" />
         <gcs_usecase>
             <param uid="0x1" />
             <!-- module_id, instance_id, param_id -->
@@ -99,6 +106,7 @@
             <param confidence_levels_ids="0x00012C0D, 0x00012C07" />
             <param operation_mode_ids="0x00012C0D, 0x00012C02" />
             <param polling_enable_ids="0x00012C0D, 0x00012C1B" />
+            <param custom_config_ids="0x00012C0D, 0x00012C20" />
         </lsm_usecase>
 
         <lsm_usecase>
@@ -107,6 +115,70 @@
             <param unload_sound_model_ids="0x00012C0D, 0x00012C15" />
             <param confidence_levels_ids="0x00012C0D, 0x00012C07" />
             <param operation_mode_ids="0x00012C0D, 0x00012C02" />
+            <param custom_config_ids="0x00012C0D, 0x00012C20" />
+        </lsm_usecase>
+
+        <!-- format: "ADPCM_packet" or "PCM_packet" !-->
+        <!-- transfer_mode: "FTRT" or "RT" -->
+        <!--  kw_duration is in milli seconds. It is valid only for FTRT
+            transfer mode -->
+        <param capture_keyword="PCM_packet, RT, 2000" />
+        <param client_capture_read_delay="2000" />
+    </sound_model_config>
+
+    <!-- Sound model config for Hotword !-->
+    <sound_model_config>
+        <param vendor_uuid="7038ddc8-30f2-11e6-b0ac-40a8f03d3f15" />
+        <param execution_type="WDSP" /> <!-- value: "WDSP" "ADSP" "DYNAMIC" -->
+        <param app_type="3" /> <!-- app type used in ACDB -->
+        <param library="none" />
+        <param max_cpe_phrases="1" />
+        <param max_cpe_users="1" />
+        <param max_ape_phrases="1" />
+        <param max_ape_users="1" />
+        <!-- Profile specific data which the algorithm can support -->
+        <param sample_rate="16000" />
+        <param bit_width="16" />
+        <param channel_count="1"/>
+        <!-- adm_cfg_profile should match with the one defined under adm_config -->
+        <!-- Set it to NONE if LSM directly connects to AFE -->
+        <param adm_cfg_profile="NONE" />
+        <!-- fluence_type: "FLUENCE", "FLUENCE_DMIC", "FLUENCE_TMIC", -->
+        <!-- "FLUENCE_QMIC". param value is valid when adm_cfg_profile="FLUENCE"-->
+        <param fluence_type="FLUENCE_QMIC" />
+        <!-- wdsp_fluence_type: fluence disabled: "NONE" -->
+        <!-- fluence enabled: "FLUENCE_DMIC", "FLUENCE_TMIC", "FLUENCE_QMIC" -->
+        <param wdsp_fluence_type="NONE" />
+        <gcs_usecase>
+            <param uid="0x3" />
+            <param load_sound_model_ids="0x18000001, 0x4, 0x00012C14" />
+            <param confidence_levels_ids="0x18000001, 0x4, 0x00012C28" />
+            <param detection_event_ids="0x18000001, 0x4, 0x00012C29" />
+            <param read_cmd_ids="0x00020013, 0x4, 0x00020015" />
+            <param read_rsp_ids="0x00020013, 0x4, 0x00020016" />
+            <param custom_config_ids="0x18000001, 0x4, 0x00012C20" />
+        </gcs_usecase>
+        <!-- Module and param ids with which the algorithm is integrated
+            in non-graphite firmware (note these must come after gcs params)
+            Extends flexibility to have different ids based on execution type.
+            valid execution_type values: "WDSP" "ADSP" -->
+        <lsm_usecase>
+            <param execution_mode="ADSP" />
+            <param load_sound_model_ids="0x18000001, 0x00012C14" />
+            <param unload_sound_model_ids="0x18000001, 0x00012C15" />
+            <param confidence_levels_ids="0x18000001, 0x00012C07" />
+            <param operation_mode_ids="0x18000001, 0x00012C02" />
+            <param polling_enable_ids="0x18000001, 0x00012C1B" />
+            <param custom_config_ids="0x18000001, 0x00012C20" />
+        </lsm_usecase>
+
+        <lsm_usecase>
+            <param execution_mode="WDSP" />
+            <param load_sound_model_ids="0x18000001, 0x00012C14" />
+            <param unload_sound_model_ids="0x18000001, 0x00012C15" />
+            <param confidence_levels_ids="0x18000001, 0x00012C07" />
+            <param operation_mode_ids="0x18000001, 0x00012C02" />
+            <param custom_config_ids="0x18000001, 0x00012C20" />
         </lsm_usecase>
 
         <!-- format: "ADPCM_packet" or "PCM_packet" !-->
