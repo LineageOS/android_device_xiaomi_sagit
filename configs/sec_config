@@ -1,6 +1,6 @@
 /* IPC Security Config */
 /* <GPS QMI Service ID - 16>:<GPS QMI Instance ID - all instances>:<Client Group ID> */
-16:4294967295:1000:1021:1026
+16:4294967295:1000:1021
 /* <LOWI QMI Service ID - 38>:<LOWI QMI Instance ID - all instances>:<Client Group ID> */
 56:4294967295:1021
 /* Allow SS CTL service to be used by system and net_raw processes */
@@ -271,7 +271,7 @@
 /* Allow RCS service to aquire net_raw permission */
 18:4294967295:1001:3004
 /* Allow QMID service to aquire net_raw permission */
-3:4294967295:1001:3004
+3:4294967295:1001:1021:3004
 2:4294967295:1000:1001:3004
 42:4294967295:1001:3004
 18:4294967295:1001:3004
@@ -315,7 +315,7 @@
 /* Allow Data dpmd to access QMI DFS */
 48:4294967295:1000:3004
 /* DIAG */
-4097:4294967295:2002:2950:3009
+4097:4294967295:2002:2950:3009:2901
 /* <WLFW QMI Service ID - 0x45>:<WLFW QMI Instance ID - all instances>:<Client Group ID> */
 69:4294967295:1000
 /* <WLPS QMI Service ID - 0x39>:<WLFW QMI Instance ID - all instances>:<Client Group ID> */
