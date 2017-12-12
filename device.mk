@@ -242,9 +242,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libjson
 
-# Init
+# Rootdir
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/fstab.qcom:system/vendor/fstab.qcom \
+    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:system/vendor/etc/fstab.qcom \
     $(LOCAL_PATH)/rootdir/ueventd.rc:system/vendor/ueventd.rc
 
 PRODUCT_COPY_FILES += \
