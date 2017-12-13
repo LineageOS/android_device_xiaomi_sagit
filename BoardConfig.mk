@@ -13,11 +13,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-BOARD_VENDOR := xiaomi
-
 DEVICE_PATH := device/xiaomi/sagit
 
-TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
+TARGET_SPECIFIC_HEADER_PATH += $(DEVICE_PATH)/include
 
 # Architecture
 TARGET_ARCH := arm64
@@ -33,12 +31,17 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53
 
 ENABLE_CPUSETS := true
-
 TARGET_USES_64_BIT_BINDER := true
 
-# Bootloader
+# Board
+TARGET_BOARD_PLATFORM := msm8998
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno540
+TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
 TARGET_BOOTLOADER_BOARD_NAME := msm8998
 TARGET_NO_BOOTLOADER := true
+
+# ANT+
+BOARD_ANT_WIRELESS_DEVICE := "qualcomm-uart"
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
@@ -52,17 +55,6 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8998
 TARGET_KERNEL_CONFIG := sagit_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
-
-# Platform
-TARGET_BOARD_PLATFORM := msm8998
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno540
-
-# ANT+
-BOARD_ANT_WIRELESS_DEVICE := "qualcomm-uart"
-
-# Assert
-TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
-TARGET_OTA_ASSERT_DEVICE := sagit
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
@@ -131,7 +123,6 @@ BOARD_HAVE_BLUETOOTH_QCOM := true
 QCOM_BT_USE_BTNV := true
 
 # Camera
-BOARD_QTI_CAMERA_32BIT_ONLY := true
 TARGET_USES_MEDIA_EXTENSIONS := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 
@@ -172,9 +163,6 @@ OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 VSYNC_EVENT_PHASE_OFFSET_NS := 0
 SF_VSYNC_EVENT_PHASE_OFFSET_NS := 0
 
-# Encryption
-TARGET_HW_DISK_ENCRYPTION := true
-
 # GPS
 TARGET_NO_RPC := true
 USE_DEVICE_SPECIFIC_GPS := true
@@ -182,11 +170,11 @@ USE_DEVICE_SPECIFIC_GPS := true
 # Init
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
 
-# Lights
-TARGET_PROVIDES_LIBLIGHT := true
-
 # Keymaster
 TARGET_PROVIDES_KEYMASTER := true
+
+# Lights
+TARGET_PROVIDES_LIBLIGHT := true
 
 # NFC
 TARGET_USES_NQ_NFC := true
@@ -194,15 +182,18 @@ BOARD_NFC_CHIPSET := pn553
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
-#BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := f2fs
 BOARD_CACHEIMAGE_PARTITION_SIZE := 402653184
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 5368709120
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 120426835968
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
+TARGET_HW_DISK_ENCRYPTION := true
 
 # Power
 TARGET_POWERHAL_VARIANT := qcom
+
+# Properties
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # QCOM
 BOARD_USES_QCOM_HARDWARE := true
@@ -213,7 +204,6 @@ TARGET_USE_SDCLANG := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/recovery.fstab
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_USERIMAGES_USE_EXT4 := true
-#TARGET_USERIMAGES_USE_F2FS := true
 
 # Releasetools
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_sagit
@@ -225,7 +215,6 @@ TARGET_RIL_VARIANT := caf
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
-
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
 # Sensors
@@ -250,9 +239,3 @@ WIFI_DRIVER_FW_PATH_P2P := "p2p"
 WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wlan.ko"
 WIFI_DRIVER_MODULE_NAME := "wlan"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
-
-# Properties
-TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
-
-# inherit from the proprietary version
--include vendor/xiaomi/sagit/BoardConfigVendor.mk
