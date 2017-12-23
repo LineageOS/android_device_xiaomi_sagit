@@ -712,7 +712,6 @@ vendor/lib/libsmemlog.so
 # RIL
 -app/datastatusnotification/datastatusnotification.apk
 -app/embms/embms.apk
--app/QtiTelephonyService/QtiTelephonyService.apk
 -app/shutdownlistener/shutdownlistener.apk
 bin/netmgrd
 bin/radish
@@ -723,11 +722,9 @@ etc/data/netmgr_config.xml
 etc/modem/Diag.cfg
 etc/permissions/embms.xml
 etc/permissions/qcrilhook.xml
-etc/permissions/telephonyservice.xml
 framework/embmslibrary.jar
 -framework/qcrilhook.jar
 framework/qti-telephony-common.jar
-framework/QtiTelephonyServicelibrary.jar
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/bin/qti
 vendor/lib64/libconfigdb.so
