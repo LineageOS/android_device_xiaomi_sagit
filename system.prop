@@ -166,12 +166,15 @@ ro.sys.sdcardfs=1
 persist.sys.sensors.cfos=false
 persist.sys.sensors.pug=false
 persist.sys.sensors.spg=false
+ro.qti.sdk.sensors.gestures=false
+ro.qti.sensors.cmc=false
 ro.qti.sensors.dev_ori=false
 ro.qti.sensors.dpc=true
-ro.qti.sensors.iod=true
+ro.qti.sensors.facing=false
+ro.qti.sensors.iod=false
 ro.qti.sensors.mot_detect=true
 ro.qti.sensors.multishake=true
-ro.qti.sensors.pmd=true
+ro.qti.sensors.pmd=false
 ro.qti.sensors.sta_detect=true
 ro.qti.sensors.taptap_gesture=true
 
