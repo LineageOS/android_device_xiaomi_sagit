@@ -618,15 +618,9 @@ vendor/lib/libsmwrapper.so
 # Media
 -vendor/lib/libgpustats.so
 -vendor/lib64/libgpustats.so
-lib64/libOmxVpp.so
-lib64/libvpplibrary.so
 lib/libOmxVpp.so
 lib/libvpplibrary.so
-vendor/lib64/libOmxEvrcDec.so
-vendor/lib64/libOmxQcelp13Dec.so
-vendor/lib64/libvpphvx.so
 vendor/lib/libOmxEvrcDec.so
-vendor/lib/libOmxQcelp13Dec.so
 vendor/lib/libvpphvx.so
 vendor/lib/libvqzip.so
 
