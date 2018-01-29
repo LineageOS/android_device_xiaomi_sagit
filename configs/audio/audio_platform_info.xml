@@ -39,8 +39,10 @@
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER" acdb_id="34"/>
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_2" acdb_id="34"/>
         <device name="SND_DEVICE_OUT_VOICE_HEADPHONES" acdb_id="52"/>
-        <device name="SND_DEVICE_OUT_USB_HEADSET" acdb_id="100"/>
-        <device name="SND_DEVICE_OUT_USB_HEADPHONES" acdb_id="100"/>
+        <device name="SND_DEVICE_OUT_USB_HEADSET" acdb_id="52"/>
+        <device name="SND_DEVICE_OUT_USB_HEADPHONES" acdb_id="52"/>
+        <device name="SND_DEVICE_OUT_VOICE_USB_HEADSET" acdb_id="100"/>
+        <device name="SND_DEVICE_OUT_VOICE_USB_HEADPHONES" acdb_id="100"/>
         <device name="SND_DEVICE_OUT_BT_SCO" acdb_id="66"/>
         <device name="SND_DEVICE_OUT_BT_SCO_WB" acdb_id="578"/>
         <device name="SND_DEVICE_OUT_VOICE_TX" acdb_id="52"/>
