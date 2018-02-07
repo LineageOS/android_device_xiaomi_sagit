@@ -1,2 +1,0 @@
-allow ueventd goodix_fpd_device:chr_file { create setattr };
-allow ueventd peel_ir_device:chr_file { create setattr };

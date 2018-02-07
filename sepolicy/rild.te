@@ -1,4 +1,0 @@
-allow rild system_radio_prop:property_service set;
-
-allow rild tombstone_data_file:file { open read write };
-allow rild tombstone_data_file:dir search;

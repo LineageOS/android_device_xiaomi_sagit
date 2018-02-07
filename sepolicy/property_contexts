@@ -1,8 +1,0 @@
-service.soundcard.         u:object_r:audio_prop:s0
-audio.                     u:object_r:audio_prop:s0
-dual.camera.cs.br          u:object_r:camera_prop:s0
-ro.boot.fp.pnstatus        u:object_r:fp_pnstatus_prop:s0
-ro.sys.oem.sno             u:object_r:system_radio_prop:s0
-sys.fake_bs_flag0          u:object_r:system_radio_prop:s0
-sys.fake_bs_flag1          u:object_r:system_radio_prop:s0
-sys.panel.                 u:object_r:system_panel_prop:s0

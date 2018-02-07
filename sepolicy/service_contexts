@@ -1,2 +1,0 @@
-sms-sec                                                          u:object_r:sms_secure_service:s0
-android.hardware.fingerprint.IGoodixFingerprintDaemon            u:object_r:fingerprintd_service:s0

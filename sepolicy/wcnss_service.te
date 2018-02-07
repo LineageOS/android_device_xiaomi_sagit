@@ -1,2 +1,0 @@
-allow wcnss_service shell_exec:file { r_file_perms execute execute_no_trans };
-allow wcnss_service toolbox_exec:file { r_file_perms execute execute_no_trans };
