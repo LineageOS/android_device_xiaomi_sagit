@@ -455,8 +455,8 @@ vendor/lib/libQSEEComAPI.so
 vendor/lib/mediadrm/libwvdrmengine.so|8d8f13b2b20db3fdeeca94fa03063d0bf5597718
 
 # Fingerprint
-lib64/hw/fingerprint.fpc.so
-lib64/hw/fingerprint.goodix.so
+lib64/hw/fingerprint.fpc.so:lib64/hw/fingerprint.fpc.msm8998.so
+lib64/hw/fingerprint.goodix.so:lib64/hw/fingerprint.goodix.msm8998.so
 lib64/libgoodixfingerprintd_binder.so
 lib64/libgf_ca.so
 lib64/libgf_hal.so
