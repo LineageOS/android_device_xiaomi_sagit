@@ -23,6 +23,7 @@
         <item>00default:standard</item>
         <item>01warm:reading</item>
         <item>02cool:dynamic</item>
+        <item>37sRGB-native:srgb</item>
     </string-array>
 
     <!-- Default value for proximity check on screen wake
