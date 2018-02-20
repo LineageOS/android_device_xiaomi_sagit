@@ -14,9 +14,6 @@
 # limitations under the License.
 #
 
-# call the proprietary setup
-$(call inherit-product, vendor/xiaomi/sagit/sagit-vendor.mk)
-
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
@@ -41,3 +38,6 @@ PRODUCT_COPY_FILES += \
 # NFC
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/nfc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf
+
+# Call the proprietary setup
+$(call inherit-product, vendor/xiaomi/sagit/sagit-vendor.mk)

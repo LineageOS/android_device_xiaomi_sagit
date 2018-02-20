@@ -14,7 +14,7 @@
 # limitations under the License.
 
 # Inherit from msm8998-common
--include device/xiaomi/msm8998-common/BoardConfigCommon.mk
+include device/xiaomi/msm8998-common/BoardConfigCommon.mk
 
 DEVICE_PATH := device/xiaomi/sagit
 
@@ -28,5 +28,5 @@ TARGET_OTA_ASSERT_DEVICE := sagit
 BOARD_HARDWARE_CLASS += \
     $(DEVICE_PATH)/cmhw
 
-# inherit from the proprietary version
--include vendor/xiaomi/sagit/BoardConfigVendor.mk
+# Inherit from proprietary files
+include vendor/xiaomi/sagit/BoardConfigVendor.mk
