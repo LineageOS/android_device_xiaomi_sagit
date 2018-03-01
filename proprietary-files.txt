@@ -1,13 +1,13 @@
 # Audio ACDB
-etc/acdbdata/Forte/Forte_Bluetooth_cal.acdb
-etc/acdbdata/Forte/Forte_General_cal.acdb
-etc/acdbdata/Forte/Forte_Global_cal.acdb
-etc/acdbdata/Forte/Forte_Handset_cal.acdb
-etc/acdbdata/Forte/Forte_Hdmi_cal.acdb
-etc/acdbdata/Forte/Forte_Headset_cal.acdb
-etc/acdbdata/Forte/Forte_Speaker_cal.acdb
-etc/acdbdata/Forte/Forte_workspaceFile.qwsp
-etc/acdbdata/adsp_avs_config.acdb
+vendor/etc/acdbdata/adsp_avs_config.acdb
+vendor/etc/acdbdata/Forte/Forte_Bluetooth_cal.acdb
+vendor/etc/acdbdata/Forte/Forte_General_cal.acdb
+vendor/etc/acdbdata/Forte/Forte_Global_cal.acdb
+vendor/etc/acdbdata/Forte/Forte_Handset_cal.acdb
+vendor/etc/acdbdata/Forte/Forte_Hdmi_cal.acdb
+vendor/etc/acdbdata/Forte/Forte_Headset_cal.acdb
+vendor/etc/acdbdata/Forte/Forte_Speaker_cal.acdb
+vendor/etc/acdbdata/Forte/Forte_workspaceFile.qwsp
 
 # Audio firmware
 etc/firmware/tfa98xx_aac.cnt
@@ -165,8 +165,8 @@ etc/qdcm_calib_data_lgd_fhd_cmd_incell_dsi_panel.xml
 lib64/hw/fingerprint.fpc.so:lib64/hw/fingerprint.fpc.msm8998.so
 
 # Sensors
-etc/sensors/hals.conf
-etc/sensors/sensor_def_qcomdev.conf
+vendor/etc/sensors/hals.conf
+vendor/etc/sensors/sensor_def_qcomdev.conf
 
 # Thermal
-etc/thermal-engine-8998.conf
+vendor/etc/thermal-engine-8998.conf
