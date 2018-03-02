@@ -27,7 +27,7 @@ TARGET_OTA_ASSERT_DEVICE := sagit
 
 # CM Hardware
 BOARD_HARDWARE_CLASS += \
-    $(DEVICE_PATH)/cmhw
+    $(DEVICE_PATH)/lineagehw
 
 # Inherit from proprietary files
 include vendor/xiaomi/sagit/BoardConfigVendor.mk
