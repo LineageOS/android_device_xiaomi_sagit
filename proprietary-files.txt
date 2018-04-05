@@ -55,6 +55,7 @@ vendor/lib/libchromatix_imx386_semco_cpp_liveshot.so
 vendor/lib/libchromatix_imx386_semco_cpp_preview.so
 vendor/lib/libchromatix_imx386_semco_cpp_snapshot.so
 vendor/lib/libchromatix_imx386_semco_cpp_snapshot_hdr.so
+vendor/lib/libchromatix_imx386_semco_cpp_snapshot_hht.so
 vendor/lib/libchromatix_imx386_semco_cpp_video.so
 vendor/lib/libchromatix_imx386_semco_cpp_video_hdr.so
 vendor/lib/libchromatix_imx386_semco_default_preview.so
