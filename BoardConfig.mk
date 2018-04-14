@@ -32,5 +32,8 @@ TARGET_OTA_ASSERT_DEVICE := sagit
 BOARD_HARDWARE_CLASS += \
     $(DEVICE_PATH)/lineagehw
 
+# SELinux
+BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
+
 # Inherit from proprietary files
 include vendor/xiaomi/sagit/BoardConfigVendor.mk

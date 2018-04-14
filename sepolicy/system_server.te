@@ -1,0 +1,1 @@
+allow system_server ir_device:chr_file rw_file_perms;
