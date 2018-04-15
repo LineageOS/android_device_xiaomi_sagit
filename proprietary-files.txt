@@ -159,8 +159,8 @@ vendor/lib/libmmcamera_sagit_imx268_liteon.so
 lib64/hw/consumerir.default.so
 
 # Display calibration
-etc/qdcm_calib_data_jdi_fhd_cmd_incell_dsi_panel.xml
-etc/qdcm_calib_data_lgd_fhd_cmd_incell_dsi_panel.xml
+etc/qdcm_calib_data_jdi_fhd_cmd_incell_dsi_panel.xml:vendor/etc/qdcm_calib_data_jdi_fhd_cmd_incell_dsi_panel.xml
+etc/qdcm_calib_data_lgd_fhd_cmd_incell_dsi_panel.xml:vendor/etc/qdcm_calib_data_lgd_fhd_cmd_incell_dsi_panel.xml
 
 # Fingerprint
 vendor/lib64/com.fingerprints.extension@1.0.so
