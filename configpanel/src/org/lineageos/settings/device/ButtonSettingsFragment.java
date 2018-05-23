@@ -44,11 +44,6 @@ public class ButtonSettingsFragment extends PreferenceFragment
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-    }
-
-    @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         String node = Constants.sBooleanNodePreferenceMap.get(preference.getKey());
         if (!TextUtils.isEmpty(node) && FileUtils.isFileWritable(node)) {
