@@ -36,10 +36,6 @@ public class Constants {
     // Holds <preference_key> -> <default_values> mapping
     public static final Map<String, Object> sNodeDefaultMap = new HashMap<>();
 
-    public static final String[] sButtonPrefKeys = {
-        BUTTON_SWAP_KEY
-    };
-
     static {
         sBooleanNodePreferenceMap.put(BUTTON_SWAP_KEY, TOUCHPANEL_BUTTON_SWAP_NODE);
         sNodeDefaultMap.put(BUTTON_SWAP_KEY, false);

@@ -44,7 +44,7 @@ public class Startup extends BroadcastReceiver {
             enableComponent(context, ButtonSettingsActivity.class.getName());
 
             // Restore nodes to saved preference values
-            for (String pref : Constants.sButtonPrefKeys) {
+            for (String pref : Constants.sBooleanNodePreferenceMap.keySet()) {
                 String node, value;
 
                 node = Constants.sBooleanNodePreferenceMap.get(pref);
