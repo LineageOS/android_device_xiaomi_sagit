@@ -32,21 +32,17 @@ public class Startup extends BroadcastReceiver {
 
     private static final String TAG = Startup.class.getSimpleName();
 
-    private static boolean isPreferenceEnabled(Context context, String key, Boolean defaultValue) {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        return preferences.getBoolean(key, defaultValue);
-    }
-
     @Override
     public void onReceive(Context context, Intent intent) {
         final String action = intent.getAction();
         if (lineageos.content.Intent.ACTION_INITIALIZE_LINEAGE_HARDWARE.equals(action)) {
             enableComponent(context, ButtonSettingsActivity.class.getName());
 
-            // Restore nodes to saved preference values
+            // Restore saved preference values
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
             for (String key : Constants.sBackendsMap.keySet()) {
                 SwitchPreferenceBackend backend = Constants.sBackendsMap.get(key);
-                Boolean value = isPreferenceEnabled(context, key, backend.getDefaultValue());
+                Boolean value = preferences.getBoolean(key, backend.getDefaultValue());
 
                 backend.setValue(value);
             }
