@@ -32,7 +32,7 @@ public class KeyDisabler {
 
     private static String CONTROL_PATH = "/proc/touchpanel/capacitive_keys_enable";
     private static String FPC_PATH = "/sys/devices/soc/soc:fingerprint_fpc/enable_key_events";
-    private static String GOODIX_PATH = "/sys/module/gf_spi/parameters/report_home_events";
+    private static String GOODIX_PATH = "/sys/devices/soc/soc:fingerprint_goodix/enable_key_events";
 
     public static boolean isSupported() {
         return FileUtils.isFileWritable(CONTROL_PATH) &&
