@@ -604,7 +604,6 @@
     <ctl name="AFE_PCM_RX Audio Mixer MultiMedia3" value="0" />
 
     <ctl name="QUAT_MI2S_RX Channels" value="Two" />
-    <ctl name="QUAT_MI2S_TX Channels" value="Two" />
 
     <!-- These are audio route (FE to BE) specific mixer settings -->
     <path name="gsm-mode">
@@ -2249,13 +2248,11 @@
 
     <path name="speaker-mono">
         <ctl name="QUAT_MI2S_RX Channels" value="One" />
-        <ctl name="QUAT_MI2S_TX Channels" value="One" />
         <ctl name="TFA Profile" value="bypass_ear" />
     </path>
 
     <path name="speaker-mono-2">
         <ctl name="QUAT_MI2S_RX Channels" value="One" />
-        <ctl name="QUAT_MI2S_TX Channels" value="One" />
         <ctl name="TFA Profile" value="bypass_spk" />
     </path>
 
@@ -2371,7 +2368,6 @@
 
     <path name="handset">
         <ctl name="QUAT_MI2S_RX Channels" value="One" />
-        <ctl name="QUAT_MI2S_TX Channels" value="One" />
         <ctl name="TFA Profile" value="speech_ear" />
     </path>
 
