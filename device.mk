@@ -44,9 +44,5 @@ PRODUCT_PACKAGES += \
     android.hardware.ir@1.0-impl \
     android.hardware.ir@1.0-service
 
-# NFC
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
-
 # Call the proprietary setup
 $(call inherit-product, vendor/xiaomi/sagit/sagit-vendor.mk)
