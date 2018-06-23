@@ -13,6 +13,9 @@ vendor/etc/acdbdata/Forte/Forte_workspaceFile.qwsp
 etc/firmware/tfa98xx_aac.cnt:vendor/firmware/tfa98xx_aac.cnt
 etc/firmware/tfa98xx_ssi.cnt:vendor/firmware/tfa98xx_ssi.cnt
 
+# Camera
+etc/dualcamera.png:vendor/etc/dualcamera.png
+
 # Camera actuator
 vendor/lib/libactuator_ak7371_s5k3m3_semco.so
 vendor/lib/libactuator_ak7371.so
