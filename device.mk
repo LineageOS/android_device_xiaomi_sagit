@@ -26,6 +26,9 @@ $(call inherit-product, device/xiaomi/msm8998-common/msm8998.mk)
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.consumerir.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.consumerir.xml
 
+# Device uses high-density artwork where available
+PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+
 # Audio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
