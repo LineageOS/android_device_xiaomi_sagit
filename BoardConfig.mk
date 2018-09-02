@@ -30,7 +30,7 @@ TARGET_OTA_ASSERT_DEVICE := sagit
 
 # Lineage Hardware
 BOARD_HARDWARE_CLASS += \
-    $(DEVICE_PATH)/lineagehw
+    org.lineageos.hardware|$(DEVICE_PATH)/lineagehw|**/*.java
 
 # SELinux
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
