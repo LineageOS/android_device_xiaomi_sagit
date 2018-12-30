@@ -21,4 +21,4 @@ export DEVICE=sagit
 export DEVICE_COMMON=msm8998-common
 export VENDOR=xiaomi
 
-./../../$VENDOR/$DEVICE_COMMON/setup-makefiles.sh $@
+"./../../${VENDOR}/${DEVICE_COMMON}/setup-makefiles.sh" "$@"
