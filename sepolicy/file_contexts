@@ -1,5 +1,2 @@
-# ConfigPanel
-/sys/devices/soc/c179000\.i2c/i2c-5/5-[0-9a-f]+/input/input[0-9]+/reversed_keys_enable u:object_r:sysfs_touchpanel:s0
-
 # IR
 /dev/peel_ir                                                  u:object_r:ir_device:s0
