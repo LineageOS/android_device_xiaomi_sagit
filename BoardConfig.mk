@@ -28,10 +28,6 @@ TARGET_KERNEL_CONFIG := sagit_defconfig
 # Assert
 TARGET_OTA_ASSERT_DEVICE := sagit
 
-# Lineage Hardware
-JAVA_SOURCE_OVERLAYS += \
-    org.lineageos.hardware|$(DEVICE_PATH)/lineagehw|**/*.java
-
 # SELinux
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 

@@ -1,2 +1,5 @@
 # IR
 /dev/peel_ir                                                  u:object_r:ir_device:s0
+
+# Lineage hardware
+/(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.sagit   u:object_r:hal_lineage_touch_default_exec:s0

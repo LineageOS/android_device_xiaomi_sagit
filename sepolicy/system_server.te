@@ -1,5 +1,1 @@
 allow system_server ir_device:chr_file rw_file_perms;
-
-# Allow KeyDisabler to work
-allow system_server sysfs_sectouch:dir search;
-allow system_server sysfs_sectouch:file rw_file_perms;
