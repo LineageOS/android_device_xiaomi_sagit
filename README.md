@@ -19,7 +19,7 @@ Shipped Android Version | 7.1.1
 Storage | 64/128 GB (UFS Flash)
 Battery | Non-removable Li-Po 3350 mAh (QC 3.0)
 Display | 1080 x 1920 pixels, 5.15 inches (~428 ppi pixel density)
-Camera  | Dual 12 MP, f/2.0, phase detection autofocus, dual-LED (dual tone) flash
+Camera  | Dual 12 MP, f/1.8, phase detection autofocus, dual-LED (dual tone) flash
 
 ## Device picture
 
