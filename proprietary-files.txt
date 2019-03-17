@@ -179,3 +179,4 @@ vendor/etc/sensors/sensor_def_qcomdev.conf
 
 # Thermal
 vendor/etc/thermal-engine-8998.conf
+vendor/etc/thermal-engine-8998-high.conf
