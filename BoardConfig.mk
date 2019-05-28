@@ -32,7 +32,7 @@ TARGET_OTA_ASSERT_DEVICE := sagit
 TARGET_SCREEN_DENSITY := 480
 
 # SELinux
-BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
 # Inherit from proprietary files
 include vendor/xiaomi/sagit/BoardConfigVendor.mk
