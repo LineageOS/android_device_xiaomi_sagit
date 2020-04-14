@@ -53,5 +53,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.touch@1.0-service.sagit
 
+# Properties
+include $(LOCAL_PATH)/vendor_prop.mk
+
 # Call the proprietary setup
 $(call inherit-product, vendor/xiaomi/sagit/sagit-vendor.mk)
