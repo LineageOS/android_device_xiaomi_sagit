@@ -56,5 +56,9 @@ PRODUCT_PACKAGES += \
 # Properties
 include $(LOCAL_PATH)/vendor_prop.mk
 
+# Wifi
+PRODUCT_PACKAGES += \
+    SagitWifiOverlay
+
 # Call the proprietary setup
 $(call inherit-product, vendor/xiaomi/sagit/sagit-vendor.mk)
