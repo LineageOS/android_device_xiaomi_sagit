@@ -41,7 +41,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         for (String key : Constants.sBackendsMap.keySet()) {
             SwitchPreferenceBackend backend = Constants.sBackendsMap.get(key);
-            Boolean value = preferences.getBoolean(key, backend.getDefaultValue());
+            Boolean value = preferences.getBoolean(key, false);
 
             backend.setValue(value);
         }

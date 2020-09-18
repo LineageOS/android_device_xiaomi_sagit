@@ -17,20 +17,6 @@
 package org.lineageos.settings.device;
 
 public abstract class SwitchPreferenceBackend {
-    protected Boolean mDefaultValue;
-
-    public SwitchPreferenceBackend(Boolean defaultValue) {
-        mDefaultValue = defaultValue;
-    }
-
-    public Boolean getDefaultValue() {
-        return mDefaultValue;
-    }
-
-    public void setDefaultValue() {
-        setValue(mDefaultValue);
-    }
-
     public abstract void setValue(Boolean value);
     public abstract Boolean getValue();
 

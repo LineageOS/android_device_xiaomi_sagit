@@ -35,6 +35,6 @@ public class Constants {
 
     static {
         sBackendsMap.put(BUTTON_SWAP_KEY,
-                new SwitchPreferenceFilesBackend(BUTTON_SWAP_PATH, false));
+                new SwitchPreferenceFilesBackend(BUTTON_SWAP_PATH));
     }
 }
