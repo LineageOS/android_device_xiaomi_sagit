@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2016 The CyanogenMod Project
- *           (C) 2017-2019 The LineageOS Project
+ *           (C) 2017-2020 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,7 +41,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         for (String key : Constants.sBackendsMap.keySet()) {
             SwitchPreferenceBackend backend = Constants.sBackendsMap.get(key);
-            Boolean value = preferences.getBoolean(key, backend.getDefaultValue());
+            Boolean value = preferences.getBoolean(key, false);
 
             backend.setValue(value);
         }

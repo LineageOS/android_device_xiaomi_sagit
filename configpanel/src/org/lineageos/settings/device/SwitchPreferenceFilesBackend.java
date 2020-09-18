@@ -23,14 +23,13 @@ public class SwitchPreferenceFilesBackend extends SwitchPreferenceBackend {
     private String[] mPaths;
     private Boolean mValid;
 
-    public SwitchPreferenceFilesBackend(String[] paths, Boolean defaultValue) {
-        super(defaultValue);
+    public SwitchPreferenceFilesBackend(String[] paths) {
         mPaths = paths;
         updateValidity();
     }
 
-    public SwitchPreferenceFilesBackend(String path, Boolean defaultValue) {
-        this(new String[]{path}, defaultValue);
+    public SwitchPreferenceFilesBackend(String path) {
+        this(new String[]{path});
     }
 
     @Override

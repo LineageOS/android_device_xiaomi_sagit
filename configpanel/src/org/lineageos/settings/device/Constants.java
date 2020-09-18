@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2016 The CyanogenMod Project
- *           (C) 2017-2018 The LineageOS Project
+ *           (C) 2017-2020 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,6 +35,6 @@ public class Constants {
 
     static {
         sBackendsMap.put(BUTTON_SWAP_KEY,
-                new SwitchPreferenceFilesBackend(BUTTON_SWAP_PATH, false));
+                new SwitchPreferenceFilesBackend(BUTTON_SWAP_PATH));
     }
 }
