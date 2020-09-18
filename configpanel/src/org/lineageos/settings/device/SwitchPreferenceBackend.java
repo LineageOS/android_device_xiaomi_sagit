@@ -16,9 +16,65 @@
 
 package org.lineageos.settings.device;
 
-public abstract class SwitchPreferenceBackend {
-    public abstract void setValue(Boolean value);
-    public abstract Boolean getValue();
+import org.lineageos.internal.util.FileUtils;
 
-    public abstract Boolean isValid();
+public class SwitchPreferenceBackend {
+
+    private String[] mPaths;
+    private Boolean mValid;
+
+    public SwitchPreferenceBackend(String[] paths) {
+        mPaths = paths;
+        updateValidity();
+    }
+
+    public SwitchPreferenceBackend(String path) {
+        this(new String[]{path});
+    }
+
+    public void setValue(Boolean value) {
+        for (String path : mPaths) {
+            if (!FileUtils.isFileWritable(path)) {
+                continue;
+            }
+
+            FileUtils.writeLine(path, value ? "1" : "0");
+        }
+    }
+
+    public Boolean getValue() {
+        Boolean value = false;
+        for (String path : mPaths) {
+            if (!FileUtils.isFileReadable(path)) {
+                continue;
+            }
+
+            if (Integer.parseInt(FileUtils.readOneLine(path)) == 1) {
+                value = true;
+            }
+        }
+        return value;
+    }
+
+    public Boolean isValid() {
+        return mValid;
+    }
+
+    private void updateValidity() {
+        Boolean valid = false;
+
+        /*
+         * Only one path might be available on a specific device,
+         * but we need to try multiple to handle multiple kernel drivers.
+         * Cache the validity to avoid slow fragment rendering times.
+         */
+        for (String path : mPaths) {
+            if (FileUtils.isFileReadable(path) && FileUtils.isFileWritable(path)) {
+                valid = true;
+                break;
+            }
+        }
+
+        mValid = valid;
+    }
 }
