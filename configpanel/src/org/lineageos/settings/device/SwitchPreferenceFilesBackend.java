@@ -42,8 +42,21 @@ public class SwitchPreferenceFilesBackend extends SwitchPreferenceBackend {
 
             FileUtils.writeLine(path, value ? "1" : "0");
         }
+    }
 
-        mValue = value;
+    @Override
+    public Boolean getValue() {
+        Boolean value = false;
+        for (String path : mPaths) {
+            if (!FileUtils.isFileReadable(path)) {
+                continue;
+            }
+
+            if (Integer.parseInt(FileUtils.readOneLine(path)) == 1) {
+                value = true;
+            }
+        }
+        return value;
     }
 
     @Override
