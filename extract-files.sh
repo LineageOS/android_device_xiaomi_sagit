@@ -21,10 +21,10 @@ function blob_fixup() {
         sed -i '/sensors.elliptic.so/d' "${2}"
         ;;
     vendor/lib64/com.fingerprints.extension@1.0.so)
-        patchelf --remove-needed "android.hidl.base@1.0.so" "${2}"
+        "${PATCHELF}" --remove-needed "android.hidl.base@1.0.so" "${2}"
         ;;
     vendor/lib64/vendor.goodix.hardware.fingerprintextension@1.0.so)
-        patchelf --remove-needed "android.hidl.base@1.0.so" "${2}"
+        "${PATCHELF}" --remove-needed "android.hidl.base@1.0.so" "${2}"
         ;;
     esac
 }
