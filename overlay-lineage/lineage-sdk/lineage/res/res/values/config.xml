@@ -67,5 +67,5 @@
             1 - Supported, but only on/off mode
             2 - Supported with variable brightness control
     -->
-    <bool name="config_deviceSupportsButtonBrightnessControl">2</bool>
+    <integer name="config_deviceSupportsButtonBrightnessControl">2</integer>
 </resources>
