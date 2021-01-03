@@ -1,3 +1,0 @@
-# Allow ConfigPanel to work
-allow system_app sysfs_sectouch:dir search;
-allow system_app sysfs_sectouch:file rw_file_perms;
