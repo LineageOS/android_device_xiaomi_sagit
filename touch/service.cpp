@@ -19,6 +19,7 @@
 #include <android-base/logging.h>
 #include <hidl/HidlTransportSupport.h>
 
+#include "KeyInverser.h"
 #include "KeyDisabler.h"
 
 using android::OK;
@@ -27,15 +28,23 @@ using android::status_t;
 using android::hardware::configureRpcThreadpool;
 using android::hardware::joinRpcThreadpool;
 
+using ::vendor::lineage::touch::V1_0::IKeyInverser;
 using ::vendor::lineage::touch::V1_0::IKeyDisabler;
+using ::vendor::lineage::touch::V1_0::implementation::KeyInverser;
 using ::vendor::lineage::touch::V1_0::implementation::KeyDisabler;
 
 int main() {
+    sp<IKeyInverser> keyInverser;
     sp<IKeyDisabler> keyDisabler;
     status_t status;
 
     LOG(INFO) << "Touch HAL service is starting.";
 
+    keyInverser = new KeyInverser();
+    if (keyInverser == nullptr) {
+        LOG(ERROR) << "Can not create an instance of Touch HAL KeyInverser Iface, exiting.";
+        goto shutdown;
+    }
     keyDisabler = new KeyDisabler();
     if (keyDisabler == nullptr) {
         LOG(ERROR) << "Can not create an instance of Touch HAL KeyDisabler Iface, exiting.";
@@ -44,6 +53,12 @@ int main() {
 
     configureRpcThreadpool(1, true /*callerWillJoin*/);
 
+    status = keyInverser->registerAsService();
+    if (status != OK) {
+        LOG(ERROR) << "Could not register service for Touch HAL KeyInverser Iface ("
+                   << status << ")";
+        goto shutdown;
+    }
     status = keyDisabler->registerAsService();
     if (status != OK) {
         LOG(ERROR) << "Could not register service for Touch HAL KeyDisabler Iface ("
