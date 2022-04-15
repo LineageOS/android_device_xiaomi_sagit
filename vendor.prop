@@ -1,2 +1,5 @@
+# Bluetooth
+bluetooth.device.default_name=Xiaomi MI 6
+
 # Camera
 persist.vendor.dualcam.lpm.enable=1
