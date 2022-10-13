@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d420d5c_4602aeee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-10-13T10:16:59Z",
+      "side": 1,
+      "message": "Does sagit really has front facing fps? If so, this hould have been done instead: https://review.lineageos.org/c/LineageOS/android_device_xiaomi_gemini/+/341647",
+      "revId": "dfb93c6c85fca3c852561b56e71251fb96e0e226",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
