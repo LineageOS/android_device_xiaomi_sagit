@@ -73,5 +73,6 @@
     <string-array name="config_cameraAuxPackageExcludeList" translatable="false">
         <item>org.telegram.messenger</item>
         <item>org.thunderdog.challegram</item>
+        <item>us.zoom.videomeetings</item>
     </string-array>
 </resources>
