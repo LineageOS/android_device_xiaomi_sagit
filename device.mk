@@ -46,9 +46,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.touch@1.0-service.sagit
 
-# Properties
-include $(LOCAL_PATH)/vendor_prop.mk
-
 # Wifi
 PRODUCT_PACKAGES += \
     SagitWifiOverlay
