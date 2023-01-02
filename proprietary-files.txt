@@ -1,5 +1,4 @@
 # Audio ACDB
-vendor/etc/acdbdata/adsp_avs_config.acdb
 vendor/etc/acdbdata/Forte/Forte_Bluetooth_cal.acdb
 vendor/etc/acdbdata/Forte/Forte_General_cal.acdb
 vendor/etc/acdbdata/Forte/Forte_Global_cal.acdb
@@ -8,6 +7,7 @@ vendor/etc/acdbdata/Forte/Forte_Hdmi_cal.acdb
 vendor/etc/acdbdata/Forte/Forte_Headset_cal.acdb
 vendor/etc/acdbdata/Forte/Forte_Speaker_cal.acdb
 vendor/etc/acdbdata/Forte/Forte_workspaceFile.qwsp
+vendor/etc/acdbdata/adsp_avs_config.acdb
 
 # Audio firmware
 etc/firmware/tfa98xx_aac.cnt:vendor/firmware/tfa98xx_aac.cnt
@@ -17,8 +17,8 @@ etc/firmware/tfa98xx_ssi.cnt:vendor/firmware/tfa98xx_ssi.cnt
 vendor/etc/camera/dualcamera.png
 
 # Camera actuator
-vendor/lib/libactuator_ak7371_s5k3m3_semco.so
 vendor/lib/libactuator_ak7371.so
+vendor/lib/libactuator_ak7371_s5k3m3_semco.so
 
 # Camera chromatix
 vendor/lib/libchromatix_imx268_4k_preview_3a.so
@@ -141,10 +141,10 @@ vendor/lib/libchromatix_sagit_imx386_semco_zsl_video.so
 
 # Camera configs
 vendor/etc/camera/camera_config.xml
-vendor/etc/camera/sagit_s5k3m3_semco_chromatix.xml
 vendor/etc/camera/sagit_imx268_chromatix.xml
 vendor/etc/camera/sagit_imx268_liteon_chromatix.xml
 vendor/etc/camera/sagit_imx386_semco_chromatix.xml
+vendor/etc/camera/sagit_s5k3m3_semco_chromatix.xml
 
 # Camera eeproms
 vendor/lib/libmmcamera_sagit_imx268_liteon_eeprom.so
@@ -166,9 +166,9 @@ vendor/etc/qdcm_calib_data_jdi_fhd_cmd_incell_dsi_panel.xml
 vendor/etc/qdcm_calib_data_lgd_fhd_cmd_incell_dsi_panel.xml
 
 # Fingerprint
-vendor/lib64/com.fingerprints.extension@1.0.so
 vendor/lib64/hw/fingerprint.fpc.so:vendor/lib64/hw/fingerprint.fpc.msm8998.so
 vendor/lib64/hw/fingerprint.goodix.so:vendor/lib64/hw/fingerprint.goodix.msm8998.so
+vendor/lib64/com.fingerprints.extension@1.0.so
 vendor/lib64/libgf_ca.so
 vendor/lib64/libgf_hal.so
 vendor/lib64/vendor.goodix.hardware.fingerprintextension@1.0.so
@@ -178,5 +178,5 @@ vendor/etc/sensors/hals.conf
 vendor/etc/sensors/sensor_def_qcomdev.conf
 
 # Thermal
-vendor/etc/thermal-engine-8998.conf
 vendor/etc/thermal-engine-8998-high.conf
+vendor/etc/thermal-engine-8998.conf
