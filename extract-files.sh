@@ -14,6 +14,9 @@ function blob_fixup() {
         vendor/lib64/com.fingerprints.extension@1.0.so)
             "${PATCHELF}" --remove-needed "android.hidl.base@1.0.so" "${2}"
             ;;
+        vendor/lib64/libgf_hal.so)
+            "${PATCHELF}" --remove-needed "libpowermanager.so" "${2}"
+            ;;
         vendor/lib64/vendor.goodix.hardware.fingerprintextension@1.0.so)
             "${PATCHELF}" --remove-needed "android.hidl.base@1.0.so" "${2}"
             ;;
