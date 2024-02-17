@@ -31,6 +31,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
     $(LOCAL_PATH)/configs/audio/mixer_paths_tasha.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_tasha.xml
 
+# Biometrics
+PRODUCT_PACKAGES += \
+    com.fingerprints.extension@1.0.vendor \
+    vendor.goodix.hardware.fingerprintextension@1.0.vendor
+
 # Input
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/keylayout/synaptics_dsx.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/synaptics_dsx.kl \
