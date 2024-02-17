@@ -171,7 +171,6 @@ vendor/lib64/hw/fingerprint.fpc.so:vendor/lib64/hw/fingerprint.fpc.msm8998.so
 vendor/lib64/hw/fingerprint.goodix.so:vendor/lib64/hw/fingerprint.goodix.msm8998.so
 vendor/lib64/libgf_ca.so
 vendor/lib64/libgf_hal.so
-vendor/lib64/vendor.goodix.hardware.fingerprintextension@1.0.so
 
 # Sensors
 vendor/etc/sensors/hals.conf
