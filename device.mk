@@ -43,7 +43,10 @@ PRODUCT_PACKAGES += \
 
 # Lineage hardware
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.sagit
+    vendor.lineage.touch-service.xiaomi
+
+$(call soong_config_set,XIAOMI_TOUCH,KEY_DISABLER_CONTROL_PATH,/proc/touchpanel/capacitive_keys_enable)
+$(call soong_config_set,XIAOMI_TOUCH,KEY_SWAPPER_CONTROL_PATH,/proc/touchpanel/reversed_keys_enable)
 
 # Wifi
 PRODUCT_PACKAGES += \
